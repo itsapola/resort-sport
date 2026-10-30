@@ -2,48 +2,61 @@
 
 *Official equipment for time off.*
 
-A one-page storefront prototype for Resort Sport Ltd. that shows the five-piece collection:
+The Collection 01 launch site for Resort Sport Ltd., a hypothetical, self-initiated brand case study. It puts into practice the three companion decks: Brand Strategy (Deck 01), Brand Identity & Guidelines (Deck 02) and Product & Go-to-Market (Deck 03).
 
-| SKU   | Bag           | Type               | Proposed retail |
-|-------|---------------|--------------------|-----------------|
-| RS-01 | The Monaco    | Travel duffel      | $695–$895       |
-| RS-02 | The Rally     | Belt bag           | $275–$350       |
-| RS-03 | The Riviera   | Oversized carryall | $595–$795       |
-| RS-04 | The Portofino | Handbag            | $495–$695       |
-| RS-05 | The Regatta   | Backpack           | $525–$725       |
+| SKU   | Bag           | Type               | Proposed retail | Launch role (Deck 03) |
+|-------|---------------|--------------------|-----------------|-----------------------|
+| RS-01 | The Monaco    | Travel duffel      | $695–$895       | Arriving later        |
+| RS-02 | The Rally     | Belt bag           | $275–$350       | Entry, available now  |
+| RS-03 | The Riviera   | Oversized carryall | $595–$795       | Arriving later        |
+| RS-04 | The Portofino | Handbag            | $495–$695       | Design hero, available now |
+| RS-05 | The Regatta   | Backpack           | $525–$725       | In development        |
 
-Every bag comes in four permanent colorways: **Heritage** (natural canvas and cognac leather), **Avorio** (ivory leather), **Cognac** and **Nero** (black leather). That makes 20 core variations. All bags have a sand-colored lining, silver-tone hardware, a tonal RS monogram and protected leather or canvas finishes.
+Every silhouette is designed in four permanent colorways: **Heritage** (natural canvas and cognac leather, the house signature), **Avorio** (ivory leather), **Cognac** and **Nero** (black leather). That makes 20 core variations. Every bag has a Sand lining, brushed silver-tone hardware and a tonal RS deboss; the Portofino adds a polished aluminum arch handle, under prototype testing.
+
+## Launch assortment
+
+Six SKUs can be added to the bag. Every other combination shows its expected price and a "Notify me" button that carries the request into the sign-up.
+
+| Bag | Available now |
+|---|---|
+| The Portofino | Cognac, Avorio, Nero ($695) |
+| The Rally | Heritage ($275), Cognac and Nero ($350) |
+
+Pricing rule: Heritage sits at the low end of each range and the all-leather colorways at the high end. The launch Portofino is all leather, so it sells at $695, and the Deck 03 unit economics are modeled at $695 to match.
 
 ## What's on the page
 
-The homepage follows the V1 editorial copy, in this order:
+1. Announcement bar and navigation, with a mobile menu
+2. Hero: "Out of office. In our element." on Pool Aqua, with the Portofino in Cognac
+3. Collection 01: the Portofino and the Rally first and largest; the Monaco and Riviera arriving later; the Regatta in development
+4. Campaign band: "Luxury doesn't have to be serious to be considered." (the creative provocation)
+5. Manifesto: "The art of being off duty."
+6. The Details: design worth recognizing
+7. The four permanent colorways, shown on the Portofino
+8. The Journal: three proposed stories
+9. Limited Issues: Issue 001, the Rally in Curaçao, after launch
+10. The Time Off Club: the correspondence sign-up
+11. Footer
 
-1. Announcement bar and navigation
-2. Hero: "Out of office. In our element." on a sun-yellow cover
-3. The Permanent Collection: an editorial grid with the Monaco and Portofino in the largest slots and a full-width Regatta card
-4. "The art of being off duty" manifesto
-5. The Details: leather, hardware and close-ups
-6. The four colorways, shown on the Portofino
-7. The Journal: three proposed stories
-8. Limited Issues: the Rally in Curaçao, shown as a concept
-9. Correspondence: the email sign-up
-10. Footer
+The product view follows Deck 03's Show, Explain, Reassure, Close: photos and colorways; the description; size, what fits, materials and build; care, delivery and returns; then price and the button. Portofino dimensions, capacity and weight are the Deck 03 design targets and are labeled as targets. Other bags state that their dimensions are published once prototypes are measured.
 
-Each product opens a quick view with colorways, price and specs. The bag keeps items in the browser's local storage and uses the brand's microcopy ("A fine choice", "Until next time").
+Microcopy carries the voice in small moments: "A fine choice" when something goes in the bag, "Nothing packed yet. Plans optional." when it's empty, and "Until next time." at checkout.
 
 ## Brand system in the code
 
-- Colorways: Heritage (the house signature), Avorio, Cognac and Nero are permanent and named plainly. Limited Issues take cocktail names: Curaçao (Pool Aqua), Negroni (Cabana Red), Limoncello (Butter Yellow) and Bijou (Racing Green), so the playfulness sits with the exceptions.
-
-- Collection name: Collection 01
-- Type: Instrument Serif for headlines and body, Space Grotesk for labels
-- Color roles (see the `:root` tokens in `index.html`):
-  - Ivory, Cognac and Black: the product palette
-  - Oxblood: identity (logo, primary actions, the manifesto spread)
-  - Butter Yellow: campaign and cover moments
-  - Pool Aqua: Limited Issues
-  - Cabana Red and Racing Green: future Limited Issues (Negroni and Bijou)
-  - Product panel tints are mixed from the accents, so there are no off-system colors
+- Line hierarchy: platform "The art of being off duty."; tagline "Official equipment for time off."; campaign "Out of office. In our element."; creative provocation "Luxury doesn't have to be serious to be considered." Other lines are section copy.
+- Colorways: permanent colorways are named plainly; Limited Issues take cocktail names: Curaçao (Pool Aqua), Negroni (Bitter Orange), Limoncello (Butter Yellow) and Bijou (Racing Green).
+- Type (Deck 02): Instrument Serif for display, in sentence case with selective italic; Space Grotesk Regular for body and Medium for labels.
+- Color roles (Deck 02; see the `:root` tokens in `index.html`):
+  - Cabana Red #811E23: brand authority, signature headlines, logo, primary actions
+  - Deep Navy #11293A: text, navigation, editorial structure
+  - Ivory #F1E9DD: primary canvas
+  - Pool Aqua #98C6C5: resort accent (the cover) and the Curaçao Limited Issue
+  - Sand #CFB9A2: the lining color; packaging neutral
+  - Palm Green #123F34: supporting accent
+  - Cognac, Avorio and Nero appear only as product colorway swatches
+  - Panel tints are mixed from the palette, so there are no off-system colors
 
 ## Running it
 
@@ -53,14 +66,12 @@ The page is static HTML with no build step. Open `index.html` in a browser, or s
 python3 -m http.server
 ```
 
-To host it on GitHub Pages, turn on Pages in the repo settings and choose the `main` branch, root folder.
+To host it on GitHub Pages, turn on Pages in the repo settings and choose the `main` branch, root folder. The link-preview image is addressed at the Pages URL.
 
 ## Notes
 
-- Prices are proposed retail ranges, not final MSRP. Heritage sits at the low end of each range and the all-leather colorways at the high end.
-- Dimensions and product copy are placeholders.
-- Colorways without a photo yet show the Heritage photo with a "Photo to come" tag.
-- Headlines and body text are set in Instrument Serif (chosen in review), with Space Grotesk for labels.
-- The Duffel and Portofino use studio photography. The Racer, Riviera and Regatta still use crops from the brand boards.
-- Checkout, journal stories, Limited Issues and Our World aren't connected yet; their buttons show a short note.
-- The hero is a placeholder layout built from the existing photography. It should be replaced by the campaign shoot (speedboat, terrace or convertible) when that exists.
+- Prices are proposed retail ranges, not final MSRP.
+- Delivery and returns policies are not set yet; the product view says they are published at launch.
+- Photography is pending. The Monaco and Portofino use studio cutouts. The Rally, Riviera and Regatta still use crops from the early brand boards, and some of those show earlier designs that Deck 01 rejected (the barrel duffel, the conventional tote, the flap backpack).
+- Colorways without a photo show a "Photo to come" tag.
+- Checkout, journal stories, Limited Issues and Our World aren't connected; their buttons show a short note.
