@@ -17,6 +17,7 @@
   --ink:#171717;
   --oxblood:#7D1B20;
   --line:#D8CCB4;
+  --latte:#DCCDB3;
   --muted:#6E6153;
   --aqua:#8FC8C6; --cabana:#A62D38; --butter:#E7C66E; --racing:#284A3C;
   --display:"Cormorant Garamond","Canela",Georgia,"Times New Roman",serif;
@@ -106,7 +107,12 @@ header.site .logo{width:190px}
 .swatches{display:flex;gap:8px;align-items:center}
 .sw{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);padding:0;position:relative}
 .sw[aria-pressed="true"]::after{content:"";position:absolute;inset:-5px;border:1px solid var(--ink);border-radius:50%}
-.sw.ivory{background:var(--ivory-deep)} .sw.cognac{background:var(--cognac)} .sw.black{background:var(--ink)} .sw.oxblood{background:linear-gradient(135deg,var(--ivory-deep) 50%,var(--oxblood) 50%)}
+.sw.heritage{background:linear-gradient(135deg,var(--ivory-deep) 50%,var(--cognac) 50%)} .sw.cognac{background:var(--cognac)} .sw.latte{background:var(--latte)} .sw.noir{background:var(--ink)}
+.soon{position:absolute;right:12px;top:12px;z-index:1;background:var(--ink);color:var(--ivory);padding:5px 8px;font-size:9px;display:none}
+.card .shot[data-soon="1"] .soon{display:block}
+.cw .chip-c{width:100%;aspect-ratio:5/4;display:grid;place-items:center;font-family:var(--label);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cw .chip-c::before{content:"";width:46%;aspect-ratio:1;border-radius:50%;background:var(--latte);border:1px solid var(--line)}
+.stage-note{position:absolute;left:12px;bottom:12px;background:var(--ivory);padding:6px 10px} .sw.oxblood{background:linear-gradient(135deg,var(--ivory-deep) 50%,var(--oxblood) 50%)}
 .sw-name{margin-left:6px}
 
 /* yacht band */
@@ -251,17 +257,17 @@ footer .label-sm{color:rgba(243,237,225,.7)}
       <div>
         <div class="label" style="color:var(--cognac);margin-bottom:22px">Official equipment for time off.</div>
         <h1>A higher form of <em>off duty.</em></h1>
-        <p class="lede">Canvas and vegetable-tanned leather, built for the weekend and finished for the yacht club. Five pieces, three colorways.</p>
+        <p class="lede">Canvas and vegetable-tanned leather, built for the weekend and finished for the yacht club. Five pieces, four colorways.</p>
         <div class="actions">
           <a class="btn" href="#equipment">Shop the equipment</a>
           <a class="btn ghost" href="#details">See the details</a>
         </div>
       </div>
       <figure class="hero-art" style="margin:0">
-        <img class="main" src="img/life-lounger.jpg" alt="The Duffel in ivory canvas on a sun lounger beside a martini and sunglasses">
+        <img class="main" src="img/life-lounger.jpg" alt="The Monaco in Heritage canvas on a sun lounger beside a martini and sunglasses">
         <img class="inset" src="img/life-portofino.jpg" alt="A woman by the sea carrying The Portofino">
         <svg class="pennant" viewBox="0 0 120 70" aria-hidden="true"><use href="#pennant"/></svg>
-        <figcaption class="label-sm">RS-01 The Duffel &nbsp;·&nbsp; RS-04 The Portofino</figcaption>
+        <figcaption class="label-sm">RS-01 The Monaco &nbsp;·&nbsp; RS-04 The Portofino</figcaption>
       </figure>
     </div>
   </section>
@@ -270,10 +276,10 @@ footer .label-sm{color:rgba(243,237,225,.7)}
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="label-sm" style="margin-bottom:14px">Collection 01 · Five pieces</div>
+          <div class="label-sm" style="margin-bottom:14px">The Permanent Collection · 5 bags × 4 colorways</div>
           <h2>The Equipment</h2>
         </div>
-        <p>Each piece carries a catalogue number, a stamped palladium plate and the RS monogram, embossed by hand.</p>
+        <p>Every bag comes in Heritage, Cognac, Latte and Noir, with a sand-colored lining, silver-tone hardware and a tonal RS monogram.</p>
       </div>
       <div class="rail-scroll"><div class="rail" id="rail"></div></div>
     </div>
@@ -287,21 +293,22 @@ footer .label-sm{color:rgba(243,237,225,.7)}
   <section class="sec">
     <div class="wrap split">
       <div class="imgs">
-        <img src="img/duffel-worn.jpg" alt="The Duffel carried on the shoulder by the pool">
-        <img src="img/duffel-detail0.jpg" alt="Palladium hardware with RS-stamped plate on The Duffel">
+        <img src="img/duffel-worn.jpg" alt="The Monaco carried on the shoulder by the pool">
+        <img src="img/duffel-detail0.jpg" alt="Silver-tone hardware with RS-stamped plate on The Monaco">
       </div>
       <div>
-        <div class="label-sm" style="margin-bottom:16px">RS-01 · The weekend essential</div>
-        <h2>The Duffel</h2>
-        <p style="margin-top:22px">Two nights, one bag. Heavyweight cotton canvas wrapped in cognac leather straps that run under the base and over the top, so the load sits on leather and the canvas stays clean.</p>
+        <div class="label-sm" style="margin-bottom:16px">RS-01 · Travel duffel</div>
+        <h2>The Monaco</h2>
+        <p style="margin-top:22px">Two nights, one bag. In Heritage, ivory canvas is wrapped in cognac leather straps that run under the base and over the top, so the load sits on leather and the canvas stays clean.</p>
         <dl class="spec">
           <dt>Dimensions</dt><dd>50 × 27 × 27 cm</dd>
-          <dt>Body</dt><dd>16 oz cotton canvas</dd>
-          <dt>Trim</dt><dd>Vegetable-tanned leather</dd>
-          <dt>Hardware</dt><dd>Palladium, RS-stamped</dd>
+          <dt>Colorways</dt><dd>Heritage, Cognac, Latte, Noir</dd>
+          <dt>Lining</dt><dd>Sand-colored</dd>
+          <dt>Hardware</dt><dd>Silver-tone</dd>
+          <dt>Price</dt><dd>$695–$895</dd>
         </dl>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px">
-          <button class="btn" data-open="duffel">View The Duffel</button>
+          <button class="btn" data-open="duffel">View The Monaco</button>
         </div>
       </div>
     </div>
@@ -318,16 +325,16 @@ footer .label-sm{color:rgba(243,237,225,.7)}
       </div>
       <div class="trio">
         <figure>
-          <img src="img/el-hardware.jpg" alt="Custom palladium buckle stamped with RS">
-          <figcaption><div class="label-sm" style="margin-bottom:8px">Custom hardware</div><h3>Stamped palladium</h3><p>Every buckle and zip pull is cast for us and stamped with the RS plate. It won't tarnish in salt air.</p></figcaption>
+          <img src="img/el-hardware.jpg" alt="Silver-tone buckle stamped with RS">
+          <figcaption><div class="label-sm" style="margin-bottom:8px">Custom hardware</div><h3>Silver-tone, RS-stamped</h3><p>Every buckle and zip pull carries the RS plate, in the same silver tone across the whole collection.</p></figcaption>
         </figure>
         <figure>
           <img src="img/el-emboss.jpg" alt="RS monogram blind-embossed in cognac leather">
-          <figcaption><div class="label-sm" style="margin-bottom:8px">Embossed monogram</div><h3>Blind-embossed RS</h3><p>Pressed into the leather with no foil or ink. Add your own initials beside it at no charge.</p></figcaption>
+          <figcaption><div class="label-sm" style="margin-bottom:8px">Embossed monogram</div><h3>Tonal RS</h3><p>Pressed into the leather in its own color, with no foil or ink. Add your own initials beside it at no charge.</p></figcaption>
         </figure>
         <figure>
           <img src="img/el-label.jpg" alt="Woven interior label reading Resort Sport Ltd., Official equipment for time off">
-          <figcaption><div class="label-sm" style="margin-bottom:8px">Interior label</div><h3>Official equipment</h3><p>A woven label inside every piece, the same one sewn into the first sample.</p></figcaption>
+          <figcaption><div class="label-sm" style="margin-bottom:8px">Interior label</div><h3>Official equipment</h3><p>A woven label against the sand-colored lining inside every bag.</p></figcaption>
         </figure>
       </div>
     </div>
@@ -404,7 +411,7 @@ footer .label-sm{color:rgba(243,237,225,.7)}
 
 <div class="qv" id="qv" role="dialog" aria-modal="true" aria-labelledby="qvName" aria-hidden="true">
   <div class="gal">
-    <div class="stage"><img id="qvStage" alt=""></div>
+    <div class="stage"><img id="qvStage" alt=""><span class="stage-note label-sm" id="qvNote" hidden>Shown in Heritage · photo to come</span></div>
     <div class="thumbs" id="qvThumbs"></div>
   </div>
   <div class="info">
@@ -426,63 +433,69 @@ footer .label-sm{color:rgba(243,237,225,.7)}
 
 <script>
 const COLORS = {
-  ivory:   {name:"Ivory",   note:"Canvas & leather", add:0},
-  cognac:  {name:"Cognac",  note:"Full leather",     add:350},
-  black:   {name:"Black",   note:"Full leather",     add:350},
-  oxblood: {name:"Oxblood", note:"Canvas & oxblood leather", add:100, limited:true}
+  heritage: {name:"Heritage", note:"Ivory canvas & cognac leather"},
+  cognac:   {name:"Cognac",   note:"Cognac leather"},
+  latte:    {name:"Latte",    note:"Cream leather"},
+  noir:     {name:"Noir",     note:"Black leather"},
+  oxblood:  {name:"Oxblood",  note:"Ivory canvas & oxblood leather", limited:true}
 };
+/* board crops are saved under the brand board's old names */
+const BOARD = {heritage:"ivory", cognac:"cognac", noir:"black"};
+/* range = proposed retail [low, high]; placeholder rule: Heritage at the low end, all-leather at the high end */
 const PRODUCTS = [
-  {id:"duffel", code:"RS-01", name:"The Duffel", tag:"The weekend essential", price:1450,
+  {id:"duffel", code:"RS-01", name:"The Monaco", tag:"Travel duffel", range:[695,895],
    desc:"Two nights, one bag. Leather straps run under the base and over the top, with a detachable shoulder strap and a zip pocket inside.",
-   spec:[["Dimensions","50 × 27 × 27 cm"],["Carry","Top handles, shoulder strap"],["Hardware","Palladium, RS-stamped"]],
+   spec:[["Dimensions","50 × 27 × 27 cm"],["Carry","Top handles, shoulder strap"]],
    details:["Hardware","Zip pull","Monogram"],
-   studio:{ivory:"duffel-studio-ivory.webp"}},
-  {id:"racer", code:"RS-02", name:"The Racer", tag:"The everyday essential", price:495,
+   studio:{heritage:"duffel-studio-ivory.webp"}},
+  {id:"racer", code:"RS-02", name:"The Rally", tag:"Belt bag", range:[275,350],
    desc:"Worn across the body or at the waist. Holds a phone, sunglasses, keys and a paperback.",
-   spec:[["Dimensions","30 × 14 × 7 cm"],["Carry","Adjustable strap"],["Hardware","Palladium, RS-stamped"]],
+   spec:[["Dimensions","30 × 14 × 7 cm"],["Carry","Adjustable strap"]],
    details:["Zip pull","Edge finish","Strap buckle"]},
-  {id:"riviera", code:"RS-03", name:"The Riviera", tag:"The beach carryall", price:895,
-   desc:"An open tote big enough for two towels. Long handles go over the shoulder with a coat on, and a snap tab keeps the top closed.",
-   spec:[["Dimensions","46 × 32 × 18 cm"],["Carry","Shoulder handles"],["Lining","Wipe-clean, with zip pocket"]],
+  {id:"riviera", code:"RS-03", name:"The Riviera", tag:"Oversized carryall", range:[595,795],
+   desc:"An open carryall big enough for two towels. Long handles go over the shoulder with a coat on.",
+   spec:[["Dimensions","46 × 32 × 18 cm"],["Carry","Shoulder handles"]],
    details:["Zip pocket","Piping","Monogram"]},
-  {id:"portofino", code:"RS-04", name:"The Portofino", tag:"The handbag", price:1250,
+  {id:"portofino", code:"RS-04", name:"The Portofino", tag:"Handbag", range:[495,695],
    desc:"A structured handbag on a polished arc handle, with a detachable strap for wearing it on the shoulder.",
-   spec:[["Dimensions","30 × 20 × 12 cm"],["Carry","Arc handle, shoulder strap"],["Hardware","Polished palladium arc"]],
+   spec:[["Dimensions","30 × 20 × 12 cm"],["Carry","Arc handle, shoulder strap"]],
    details:["Arc handle","Zip pull","Monogram"],
-   colors:["ivory","cognac","black","oxblood"], notes:{ivory:"Full leather"},
-   prices:{ivory:1450, cognac:1450, black:1450, oxblood:1350},
-   studio:{ivory:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", black:"portofino-studio-black.webp", oxblood:"portofino-studio-oxblood.webp"}},
-  {id:"regatta", code:"RS-05", name:"The Regatta", tag:"The backpack", price:1150,
+   extra:["oxblood"],
+   studio:{latte:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", noir:"portofino-studio-black.webp", oxblood:"portofino-studio-oxblood.webp"}},
+  {id:"regatta", code:"RS-05", name:"The Regatta", tag:"Backpack", range:[525,725],
    desc:"A flap backpack with a buckled front strap, two zip side pockets and a padded sleeve for a 14-inch laptop.",
    spec:[["Dimensions","32 × 40 × 16 cm"],["Carry","Padded leather straps"],["Laptop","Fits 14 in"]],
    details:["Buckle","Front strap","Monogram"]}
 ];
+const PERMANENT = ["heritage", "cognac", "latte", "noir"];
 const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
 const fmt = n => "$" + n.toLocaleString("en-US");
+const fmtRange = p => `${fmt(p.range[0])}–${fmt(p.range[1])}`;
 const img = (id, k) => `img/${id}-${k}.jpg`;
-const colorsOf = p => p.colors || ["ivory", "cognac", "black"];
-const noteOf = (p, c) => p.notes?.[c] || COLORS[c].note;
-const priceOf = (p, c) => p.prices?.[c] ?? p.price + COLORS[c].add;
-/* product cutout for a colorway: studio photo when we have one, else the board thumbnail */
-const thumbOf = (p, c) => p.studio?.[c] ? `img/${p.studio[c]}` : img(p.id, c);
-/* ivory without a studio photo falls back to the lifestyle shot */
-const usesCutout = (p, c) => !!p.studio?.[c] || c !== "ivory";
+const colorsOf = p => PERMANENT.concat(p.extra || []);
+const noteOf = (p, c) => COLORS[c].note;
+const priceOf = (p, c) => c === "heritage" ? p.range[0] : p.range[1];
+/* product cutout for a colorway: studio photo, else the board thumbnail, else null (not yet photographed) */
+const thumbOf = (p, c) => p.studio?.[c] ? `img/${p.studio[c]}` : BOARD[c] ? img(p.id, BOARD[c]) : null;
+/* Heritage without a studio photo uses the lifestyle shot, which shows Heritage */
+const usesCutout = (p, c) => !!p.studio?.[c] || (c !== "heritage" && !!thumbOf(p, c));
 const $ = s => document.querySelector(s);
 
 /* rail */
 $("#rail").innerHTML = PRODUCTS.map(p => `
   <article class="card" data-id="${p.id}">
-    <button class="shot" data-open="${p.id}" data-color="ivory" aria-label="Quick view ${p.name}">
+    <button class="shot" data-open="${p.id}" data-color="heritage" aria-label="Quick view ${p.name}">
+      <span class="soon label-sm">Photo to come</span>
       <span class="code">${p.code}</span>
       <img class="base" src="${img(p.id,'hero')}" alt="">
       <img class="alt" src="${img(p.id,'cognac')}" alt="">
       <span class="quick label">Quick view</span>
     </button>
-    <div class="row"><h3>${p.name}</h3><span class="price">${fmt(priceOf(p, "ivory"))}</span></div>
+    <div class="row"><h3>${p.name}</h3><span class="price">${fmtRange(p)}</span></div>
     <div class="row">
       <div class="swatches" role="group" aria-label="Colorway">
         ${colorsOf(p).map((c,i) => `<button class="sw ${c}" data-sw="${c}" aria-pressed="${i===0}" aria-label="${COLORS[c].name}"></button>`).join("")}
-        <span class="label-sm sw-name">Ivory</span>
+        <span class="label-sm sw-name">Heritage</span>
       </div>
     </div>
   </article>`).join("");
@@ -495,6 +508,7 @@ document.querySelectorAll(".card").forEach(card => {
     if (usesCutout(p, c)) alt.src = thumbOf(p, c);
     shot.dataset.color = c;
     shot.dataset.alt = usesCutout(p, c) ? "1" : "";
+    shot.dataset.soon = thumbOf(p, c) ? "" : "1";
     card.querySelector(".sw-name").textContent = COLORS[c].name;
     card.querySelector(".price").textContent = fmt(priceOf(p, c));
   }));
@@ -511,7 +525,7 @@ function renderBag() {
   $("#lines").innerHTML = bag.length ? bag.map((l, i) => {
     const p = byId[l.id];
     return `<div class="line">
-      <img src="${thumbOf(p, l.c)}" alt="">
+      <img src="${thumbOf(p, l.c) || img(p.id, 'hero')}" alt="">
       <div><div class="label-sm">${p.code} · ${COLORS[l.c].name}</div><h4>${p.name}</h4>
         <div class="qty"><button data-q="${i}" data-d="-1" aria-label="Decrease quantity">−</button><span>${l.q}</span><button data-q="${i}" data-d="1" aria-label="Increase quantity">+</button></div><br>
         <button class="rm" data-rm="${i}">Remove</button></div>
@@ -567,25 +581,26 @@ function setColor(c) {
   $("#qvColor").textContent = `${COLORS[c].name} · ${noteOf(p, c)}${COLORS[c].limited ? " · Limited edition" : ""}`;
   $("#qvPrice").textContent = fmt(priceOf(p, c));
   $("#qvCw").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
+  $("#qvNote").hidden = !!thumbOf(p, c);
   if (usesCutout(p, c)) { setStage(thumbOf(p, c), true); markThumb(-1); }
   else { setStage(img(p.id, "hero")); markThumb(0); }
 }
 function markThumb(i) { $("#qvThumbs").querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === i)); }
 function openQV(id, color) {
-  const p = byId[id]; cur = {p, c:"ivory"};
-  $("#qvCode").textContent = `${p.code} / Collection 01`;
+  const p = byId[id]; cur = {p, c:"heritage"};
+  $("#qvCode").textContent = `${p.code} / The Permanent Collection`;
   $("#qvName").textContent = p.name;
   $("#qvTag").textContent = p.tag;
   $("#qvDesc").textContent = p.desc;
-  $("#qvSpec").innerHTML = p.spec.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("") + `<dt>Monogram</dt><dd>Up to 3 initials, complimentary</dd>`;
+  $("#qvSpec").innerHTML = p.spec.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("") + `<dt>Lining</dt><dd>Sand-colored</dd><dt>Hardware</dt><dd>Silver-tone</dd><dt>Branding</dt><dd>Tonal RS monogram</dd><dt>Finish</dt><dd>Protected leather and canvas</dd>`;
   const shots = [["hero","Poolside"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]];
   $("#qvThumbs").innerHTML = shots.map(([k, l], i) => `<button data-k="${k}" aria-label="${l}" aria-current="${i===0}"><img src="${img(p.id,k)}" alt=""></button>`).join("");
   $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => { setStage(img(p.id, b.dataset.k)); markThumb(i); }));
   $("#qvStage").alt = `${p.name}`;
   $("#qvCw").style.setProperty("--n", colorsOf(p).length);
-  $("#qvCw").innerHTML = colorsOf(p).map(c => `<button data-c="${c}" aria-pressed="false"><img src="${thumbOf(p,c)}" alt=""><span class="label-sm">${COLORS[c].name}</span>${COLORS[c].limited ? '<span class="ltd">Limited</span>' : ""}</button>`).join("");
+  $("#qvCw").innerHTML = colorsOf(p).map(c => `<button data-c="${c}" aria-pressed="false">${thumbOf(p,c) ? `<img src="${thumbOf(p,c)}" alt="">` : `<span class="chip-c">Photo to come</span>`}<span class="label-sm">${COLORS[c].name}</span>${COLORS[c].limited ? '<span class="ltd">Limited</span>' : ""}</button>`).join("");
   $("#qvCw").querySelectorAll("button").forEach(b => b.addEventListener("click", () => setColor(b.dataset.c)));
-  const cardColor = document.querySelector(`.card[data-id="${id}"] .shot`)?.dataset.color || "ivory";
+  const cardColor = document.querySelector(`.card[data-id="${id}"] .shot`)?.dataset.color || "heritage";
   setColor(color && colorsOf(p).includes(color) ? color : cardColor);
   openLayer($("#qv"));
 }

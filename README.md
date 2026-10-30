@@ -4,17 +4,19 @@
 
 A one-page storefront prototype for Resort Sport Ltd. that shows the five-piece collection:
 
-| Code  | Piece         | Use                    |
-|-------|---------------|------------------------|
-| RS-01 | The Duffel    | For the weekend        |
-| RS-02 | The Racer     | For every day          |
-| RS-03 | The Riviera   | For the beach          |
-| RS-04 | The Portofino | Handbag                |
-| RS-05 | The Regatta   | Backpack               |
+| SKU   | Bag           | Type               | Proposed retail |
+|-------|---------------|--------------------|-----------------|
+| RS-01 | The Monaco    | Travel duffel      | $695–$895       |
+| RS-02 | The Rally     | Belt bag           | $275–$350       |
+| RS-03 | The Riviera   | Oversized carryall | $595–$795       |
+| RS-04 | The Portofino | Handbag            | $495–$695       |
+| RS-05 | The Regatta   | Backpack           | $525–$725       |
+
+Every bag comes in four permanent colorways: **Heritage** (ivory canvas and cognac leather), **Cognac**, **Latte** (cream leather) and **Noir** (black leather). That makes 20 core variations. All bags have a sand-colored lining, silver-tone hardware, a tonal RS monogram and protected leather or canvas finishes.
 
 ## What's on the page
 
-- Product cards with Ivory, Cognac and Black colorways, plus the limited-edition Oxblood Portofino
+- Product cards with the four permanent colorways, plus the limited-edition Oxblood Portofino
 - Studio cutout photos (`img/*-studio-*.webp`) for the Duffel and Portofino
 - A quick view for each product, with photos, colorway picker and specs
 - A bag that keeps items in the browser's local storage
@@ -32,7 +34,9 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 
 ## Notes
 
-- Prices, specs and product copy are placeholders.
+- Prices are proposed retail ranges, not final MSRP. Until per-variant pricing is set, the page charges the low end for Heritage and the high end for the all-leather colorways (and for Oxblood).
+- Dimensions and product copy are placeholders.
+- Colorways without a photo yet show the Heritage photo with a "Photo to come" tag.
 - Cormorant Garamond stands in for Canela, which isn't available as a free web font.
 - The Duffel and Portofino use studio photography. The Racer, Riviera and Regatta still use crops from the brand boards.
 - Checkout and email sign-up don't send anything anywhere yet.
