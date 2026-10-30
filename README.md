@@ -14,7 +14,8 @@ A one-page storefront prototype for Resort Sport Ltd. that shows the five-piece 
 
 ## What's on the page
 
-- Product cards with Ivory, Cognac and Black colorways
+- Product cards with Ivory, Cognac and Black colorways, plus the limited-edition Oxblood Portofino
+- Studio cutout photos (`img/*-studio-*.webp`) for the Duffel and Portofino
 - A quick view for each product, with photos, colorway picker and specs
 - A bag that keeps items in the browser's local storage
 - A sign-up list for limited-edition colors
@@ -33,5 +34,5 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 
 - Prices, specs and product copy are placeholders.
 - Cormorant Garamond stands in for Canela, which isn't available as a free web font.
-- Photos are crops from the brand boards. Swap in full-size photography before launch.
+- The Duffel and Portofino use studio photography. The Racer, Riviera and Regatta still use crops from the brand boards.
 - Checkout and email sign-up don't send anything anywhere yet.
