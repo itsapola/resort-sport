@@ -590,7 +590,7 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
   <div class="lines" id="lines"></div>
   <div class="drawer-foot" id="drawerFoot">
     <div class="row"><span class="label-sm">Subtotal</span><span class="price" id="subtotal">$0</span></div>
-    <p class="note">Shipping and taxes calculated at checkout. Full price, always.</p>
+    <p class="note">30-day returns. Shipping and taxes calculated at checkout. Full price, always.</p>
     <button class="btn" id="checkout">Check out</button>
   </div>
 </aside>
@@ -837,7 +837,7 @@ function openQV(id, color) {
     <div><h4>Size</h4>${p.size ? dl(p.size) + `<p class="fine">${TARGET}.</p>` : `<p class="fine">Dimensions, capacity and weight are published once prototypes are measured.</p>`}</div>
     ${p.fits ? `<div><h4>What fits</h4><p>${p.fits}</p></div>` : ""}
     <div><h4>Materials &amp; build</h4><dl class="spec"><dt>Exterior</dt><dd data-k="exterior"></dd>${p.build.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}<dt>Hardware</dt><dd>Brushed silver-tone</dd><dt>Lining</dt><dd>Sand, in every bag</dd><dt>Branding</dt><dd>Tonal RS deboss only</dd></dl></div>
-    <div><h4>Care, delivery &amp; returns</h4><dl class="spec"><dt>Care</dt><dd>Wipe with a soft, dry cloth. Store in the dust bag, away from direct sun.</dd><dt>Delivery</dt><dd>Policy published at launch</dd><dt>Returns</dt><dd>Policy published at launch</dd></dl></div>`;
+    <div><h4>Care, delivery &amp; returns</h4><dl class="spec"><dt>Care</dt><dd>Wipe with a soft, dry cloth. Store in the dust bag, away from direct sun.</dd><dt>Delivery</dt><dd>Policy published at launch</dd><dt>Returns</dt><dd>30 days from delivery. Return it unused, in its original condition, with the dust bag.</dd></dl></div>`;
   const shots = [["hero","Poolside"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]];
   $("#qvThumbs").innerHTML = shots.map(([k, l], i) => `<button data-k="${k}" aria-label="${l}" aria-current="${i===0}"><img src="${img(p.id,k)}" alt=""></button>`).join("");
   $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => { setStage(img(p.id, b.dataset.k)); markThumb(i); $("#qvNote").hidden = true; }));
