@@ -31,6 +31,18 @@ The homepage follows the V1 editorial copy, in this order:
 
 Each product opens a quick view with colorways, price and specs. The bag keeps items in the browser's local storage and uses the brand's microcopy ("A fine choice", "Until next time").
 
+## Brand system in the code
+
+- Collection name: Collection 01
+- Type: Instrument Serif for headlines and body, Space Grotesk for labels
+- Color roles (see the `:root` tokens in `index.html`):
+  - Ivory, Cognac and Black: the product palette
+  - Oxblood: identity (logo, primary actions, the manifesto spread)
+  - Butter Yellow: campaign and cover moments
+  - Pool Aqua: Limited Issues
+  - Cabana Red and Racing Green: reserved for future Limited Issues
+  - Product panel tints are mixed from the accents, so there are no off-system colors
+
 ## Running it
 
 The page is static HTML with no build step. Open `index.html` in a browser, or serve the folder:
@@ -43,7 +55,7 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 
 ## Notes
 
-- Prices are proposed retail ranges, not final MSRP. Until per-variant pricing is set, the page charges the low end for Heritage and the high end for the all-leather colorways.
+- Prices are proposed retail ranges, not final MSRP. Heritage sits at the low end of each range and the all-leather colorways at the high end.
 - Dimensions and product copy are placeholders.
 - Colorways without a photo yet show the Heritage photo with a "Photo to come" tag.
 - Headlines and body text are set in Instrument Serif (chosen in review), with Space Grotesk for labels.

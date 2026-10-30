@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Resort Sport Ltd.</title>
+<meta name="description" content="Resort Sport Ltd. Official equipment for time off. Five considered bags in canvas and leather, made for wherever the good times take you.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Resort Sport Ltd.">
+<meta property="og:title" content="Resort Sport Ltd. Out of office. In our element.">
+<meta property="og:description" content="Official equipment for time off. Five considered bags in canvas and leather.">
+<meta property="og:image" content="https://itsapola.github.io/resort-sport/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://itsapola.github.io/resort-sport/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#7D1B20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M4 8 L60 32 L4 56 Z' fill='%237D1B20'/%3E%3Ctext x='9' y='39' font-family='Georgia,serif' font-style='italic' font-size='17' fill='%23F3EDE1'%3ERS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500&display=swap">
@@ -12,16 +24,22 @@
    an oxblood "members' club" spread, the details, the colorway line-up, journal, Limited Issues, letters.
    Serious about the product (quiet ivory panels); unserious everywhere else (big italic type, color). */
 :root{
-  --ivory:#F3EDE1;      /* paper */
-  --ivory-deep:#E9DFC9; /* brand ivory, product panels */
-  --cognac:#96562F;
-  --ink:#171717;
-  --oxblood:#7D1B20;
-  --sun:#E7C66E;        /* brand butter yellow, the cover */
-  --aqua:#8FC8C6;       /* brand pool aqua */
-  --aqua-pale:#D7EAE6;
-  --blush:#EAD3C7;
-  --latte:#DCCDB3;
+  /* core: the product palette */
+  --ivory:#F3EDE1;      /* paper (lifted brand Ivory) */
+  --ivory-deep:#E9DFC9; /* brand Ivory: product panels */
+  --cognac:#96562F;     /* brand Cognac: leather, never decoration */
+  --ink:#171717;        /* brand Black: text */
+  /* brand accent: identity */
+  --oxblood:#7D1B20;    /* logo, primary actions, the members'-club spread */
+  /* brand world accents: one job each */
+  --sun:#E7C66E;        /* Butter Yellow: campaign and cover moments */
+  --aqua:#8FC8C6;       /* Pool Aqua: Limited Issues */
+  --cabana:#A62D38;     /* Cabana Red: reserved for a future Limited Issue */
+  --racing:#284A3C;     /* Racing Green: reserved for a future Limited Issue */
+  /* tints for product panels, mixed from the accents (no off-system colors) */
+  --aqua-pale:color-mix(in srgb, var(--aqua) 32%, var(--ivory));
+  --blush:color-mix(in srgb, var(--cabana) 16%, var(--ivory));
+  --latte:#DCCDB3;      /* colorway swatch only */
   --line:#D8CCB4;
   --muted:#6E6153;
   --display:"Instrument Serif","Canela",Georgia,"Times New Roman",serif;
@@ -60,13 +78,23 @@ h1,h2,h3{font-weight:400;line-height:.98;margin:0;text-wrap:balance;letter-spaci
 .announce a span{border-bottom:1px solid rgba(243,237,225,.5);margin-left:10px}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ivory) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header.site .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding-block:14px}
-header.site nav{display:flex;gap:26px}
-header.site nav a{text-decoration:none}
+header.site nav{display:flex;gap:24px}
+header.site nav a{text-decoration:none;white-space:nowrap}
+.menu-btn{display:none;background:none;border:0;padding:6px 0;justify-self:start}
+@media (max-width:1180px){header.site nav{gap:18px}header.site nav .label{letter-spacing:.2em}}
 header.site nav a:hover{color:var(--oxblood)}
 header.site .logo{width:190px}
 .bag-btn{justify-self:end;background:none;border:0;display:flex;align-items:center;gap:10px;padding:6px 0}
 .bag-count{font-family:var(--label);font-size:11px;min-width:22px;height:22px;border-radius:50%;display:inline-grid;place-items:center;background:var(--ink);color:var(--ivory)}
-@media (max-width:820px){header.site nav{display:none}header.site .wrap{grid-template-columns:1fr auto}header.site .logo{width:150px}}
+@media (max-width:820px){
+  header.site .wrap{grid-template-columns:1fr auto 1fr;gap:12px}
+  header.site .logo{width:150px}
+  .menu-btn{display:block}
+  header.site nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--ivory);border-bottom:1px solid var(--line);padding:8px max(20px,env(safe-area-inset-right,0px)) 16px max(20px,env(safe-area-inset-left,0px))}
+  header.site.open nav{display:flex}
+  header.site nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  header.site nav a:last-child{border-bottom:0}
+}
 
 /* 02 hero: the cover */
 .hero{background:var(--sun);overflow:hidden;position:relative}
@@ -80,7 +108,7 @@ header.site .logo{width:190px}
 .hero .actions .btn.ghost{border-color:var(--ink);color:var(--ink)}
 .hero .actions .btn.ghost:hover{background:var(--ink);color:var(--sun)}
 .hero .art{position:relative;min-height:440px}
-.hero .print{position:absolute;right:-48px;top:-120px;width:min(360px,64%);background:var(--ivory);padding:12px 12px 40px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(60,40,0,.22);z-index:1}
+.hero .print{position:absolute;right:calc(-1 * clamp(0px,(100vw - 1260px) / 2,48px));top:-120px;width:min(360px,64%);background:var(--ivory);padding:12px 12px 40px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(60,40,0,.22);z-index:1}
 .hero .print img{width:100%;aspect-ratio:284/226;object-fit:cover}
 .hero .print figcaption{position:absolute;left:14px;bottom:12px;font-family:var(--display);font-style:italic;font-size:17px;color:var(--muted)}
 .hero .bag{position:absolute;left:-6%;bottom:30px;width:118%;max-width:none;z-index:4;filter:drop-shadow(0 30px 30px rgba(80,50,0,.28));animation:sway 7s ease-in-out infinite;transform-origin:50% 0}
@@ -94,7 +122,7 @@ header.site .logo{width:190px}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr;min-height:0}
   .hero .art{min-height:0;aspect-ratio:1/0.95;order:-1;grid-row:3}
-  .hero .print{top:0;width:58%}
+  .hero .print{top:0;width:58%;right:0}
   .hero .print figcaption{display:none}
   .hero .bag{left:-4%;width:100%;bottom:0}
   .hero .pennant{width:70px;top:-26px;right:28%}
@@ -325,7 +353,8 @@ footer .label-sm{color:rgba(243,237,225,.6)}
 
 <header class="site">
   <div class="wrap">
-    <nav aria-label="Primary">
+    <button class="menu-btn label" id="menuBtn" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+    <nav aria-label="Primary" id="primaryNav">
       <a class="label" href="#collection">The Collection</a>
       <a class="label" href="#world">Our World</a>
       <a class="label" href="#journal">The Journal</a>
@@ -364,7 +393,7 @@ footer .label-sm{color:rgba(243,237,225,.6)}
   <section class="sec" id="collection">
     <div class="wrap">
       <div class="head">
-        <div class="label-sm kicker">The Permanent Collection / Five originals</div>
+        <div class="label-sm kicker">Collection 01 / Five originals</div>
         <h2>Good things come to those who <em>go.</em></h2>
         <p>Five distinct silhouettes. Thoughtfully crafted for spontaneous departures, extended stays, and everything in between.</p>
       </div>
@@ -599,7 +628,7 @@ const PRODUCTS = [
   {id:"racer", slot:"rally", code:"RS-02", name:"The Rally", tag:"The belt bag", say:"Hands free. Plans optional.", range:[275,350],
    desc:"Worn across the body or at the waist. Holds a phone, sunglasses, keys and a paperback.",
    spec:[["Carry","Adjustable strap"]], details:["Zip pull","Edge finish","Strap buckle"]},
-  {id:"riviera", slot:"riviera", code:"RS-03", name:"The Riviera", tag:"The beach carryall", say:"More room for less agenda.", range:[595,795],
+  {id:"riviera", slot:"riviera", code:"RS-03", name:"The Riviera", tag:"The oversized carryall", say:"More room for less agenda.", range:[595,795],
    desc:"An open carryall big enough for two towels. Long handles go over the shoulder with a coat on.",
    spec:[["Carry","Shoulder handles"]], details:["Zip pocket","Piping","Monogram"]},
   {id:"regatta", slot:"regatta", code:"RS-05", name:"The Regatta", tag:"The backpack", say:"Take the scenic route. Bring everything.", range:[525,725],
@@ -703,8 +732,21 @@ $("#lines").addEventListener("click", e => {
   save(); renderBag();
 });
 $("#checkout").addEventListener("click", () => {
+  bag = []; save(); renderBag();
   $("#lines").innerHTML = `<p class="bye-msg">Until next time.<br><span class="note">Checkout isn't connected in this preview, so nothing was charged.</span></p>`;
   $("#drawerFoot").hidden = true;
+});
+
+/* mobile menu */
+$("#menuBtn").addEventListener("click", () => {
+  const open = document.querySelector("header.site").classList.toggle("open");
+  $("#menuBtn").setAttribute("aria-expanded", open);
+  $("#menuBtn").textContent = open ? "Close" : "Menu";
+});
+$("#primaryNav").addEventListener("click", e => {
+  if (!e.target.closest("a")) return;
+  document.querySelector("header.site").classList.remove("open");
+  $("#menuBtn").setAttribute("aria-expanded", "false"); $("#menuBtn").textContent = "Menu";
 });
 
 /* overlays */
@@ -743,7 +785,7 @@ function setColor(c) {
 }
 function openQV(id, color) {
   const p = byId[id]; cur = {p, c:"heritage"};
-  $("#qvCode").textContent = `${p.code} / The Permanent Collection`;
+  $("#qvCode").textContent = `${p.code} / Collection 01`;
   $("#qvName").textContent = p.name;
   $("#qvTag").textContent = p.tag;
   $("#qvSay").textContent = p.say;
