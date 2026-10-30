@@ -33,7 +33,7 @@ Each product opens a quick view with colorways, price and specs. The bag keeps i
 
 ## Brand system in the code
 
-- Colorways: Heritage (the house signature), Avorio, Cognac and Nero are permanent and named plainly. Limited Issues take cocktail names (Curaçao, Negroni, Limoncello), so the playfulness sits with the exceptions.
+- Colorways: Heritage (the house signature), Avorio, Cognac and Nero are permanent and named plainly. Limited Issues take cocktail names: Curaçao (Pool Aqua), Negroni (Cabana Red), Limoncello (Butter Yellow) and Bijou (Racing Green), so the playfulness sits with the exceptions.
 
 - Collection name: Collection 01
 - Type: Instrument Serif for headlines and body, Space Grotesk for labels
@@ -42,7 +42,7 @@ Each product opens a quick view with colorways, price and specs. The bag keeps i
   - Oxblood: identity (logo, primary actions, the manifesto spread)
   - Butter Yellow: campaign and cover moments
   - Pool Aqua: Limited Issues
-  - Cabana Red and Racing Green: reserved for future Limited Issues
+  - Cabana Red and Racing Green: future Limited Issues (Negroni and Bijou)
   - Product panel tints are mixed from the accents, so there are no off-system colors
 
 ## Running it
