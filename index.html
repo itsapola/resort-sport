@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resort Sport Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Space+Grotesk:wght@400;500&display=swap">
+<style>
+/* Layout: a catalogue of equipment. Ivory paper, oxblood ink, cognac for leather moments.
+   Catalogue numbers (RS-01…05) are real product codes and order the collection. */
+:root{
+  --ivory:#F3EDE1;      /* page paper, lifted from brand ivory */
+  --ivory-deep:#E9DFC9; /* brand ivory, panels */
+  --cognac:#96562F;
+  --ink:#171717;
+  --oxblood:#7D1B20;
+  --line:#D8CCB4;
+  --muted:#6E6153;
+  --aqua:#8FC8C6; --cabana:#A62D38; --butter:#E7C66E; --racing:#284A3C;
+  --display:"Cormorant Garamond","Canela",Georgia,"Times New Roman",serif;
+  --label:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --gutter:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--display);font-size:19px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ivory)}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.label{font-family:var(--label);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:400}
+.label-sm{font-family:var(--label);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-weight:300;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:.8em;font-family:var(--label);font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:16px 26px;border:1px solid var(--oxblood);background:var(--oxblood);color:var(--ivory);text-decoration:none;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--oxblood)}
+.btn.ghost{background:transparent;color:var(--oxblood)}
+.btn.ghost:hover{background:var(--oxblood);color:var(--ivory)}
+.logo{display:block;height:auto}
+
+/* announcement + header */
+.announce{background:var(--oxblood);color:var(--ivory);text-align:center;padding-block:9px}
+.announce .label{font-size:10px}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ivory) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding-block:14px}
+header.site nav{display:flex;gap:28px}
+header.site nav a{text-decoration:none;color:var(--ink)}
+header.site nav a:hover{color:var(--oxblood)}
+header.site .logo{width:190px}
+.bag-btn{justify-self:end;background:none;border:0;display:flex;align-items:center;gap:10px;padding:6px 0}
+.bag-count{font-family:var(--label);font-size:11px;min-width:22px;height:22px;border-radius:50%;display:inline-grid;place-items:center;background:var(--ink);color:var(--ivory)}
+@media (max-width:760px){
+  header.site nav{display:none}
+  header.site .wrap{grid-template-columns:1fr auto}
+  header.site .logo{width:150px}
+}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;padding-block:64px 72px}
+.hero h1{font-size:clamp(52px,7.4vw,108px);color:var(--oxblood)}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero p.lede{max-width:30ch;font-size:21px;color:var(--ink);margin:28px 0 36px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-art{position:relative;padding-bottom:56px}
+.hero-art .main{width:84%;margin-left:auto;aspect-ratio:284/226;object-fit:cover}
+.hero-art .inset{position:absolute;left:0;bottom:0;width:38%;aspect-ratio:257/226;object-fit:cover;border:8px solid var(--ivory)}
+.hero-art .pennant{position:absolute;right:-8px;top:-26px;width:96px}
+.hero-art figcaption{position:absolute;right:0;bottom:16px;width:58%;text-align:right}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:40px 48px}
+  .hero-art .pennant{width:70px;top:-18px}
+}
+
+/* section heads */
+.sec{padding-block:88px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px;border-bottom:1px solid var(--line);padding-bottom:22px}
+.sec-head h2{font-size:clamp(40px,5vw,64px)}
+.sec-head p{margin:0;max-width:38ch;color:var(--muted)}
+
+/* equipment rail */
+.rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){
+  .rail-scroll{overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(-1 * var(--gutter-r));padding-right:var(--gutter-r);padding-bottom:8px}
+  .rail{grid-template-columns:repeat(5,min(78vw,280px))}
+  .card{scroll-snap-align:start}
+}
+.card{display:flex;flex-direction:column;gap:14px}
+.card .shot{position:relative;background:var(--ivory-deep);aspect-ratio:4/5;overflow:hidden;border:0;padding:0;width:100%}
+.card .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform .6s}
+.card .shot img.alt{object-fit:contain;padding:12%;opacity:0;background:var(--ivory-deep)}
+.card .shot[data-color="cognac"] img.alt,.card .shot[data-color="black"] img.alt{opacity:1}
+.card .shot:hover img.base{transform:scale(1.03)}
+.card .code{position:absolute;left:12px;top:12px;font-family:var(--label);font-size:10px;letter-spacing:.24em;background:var(--ivory);padding:5px 8px;z-index:1}
+.card .quick{position:absolute;left:12px;right:12px;bottom:12px;z-index:1;background:var(--ivory);text-align:center;padding:11px;opacity:0;transform:translateY(6px);transition:.25s}
+.card .shot:hover .quick,.card .shot:focus-visible .quick{opacity:1;transform:none}
+@media (hover:none){.card .quick{opacity:1;transform:none}}
+.card h3{font-size:28px;font-weight:400}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.price{font-family:var(--label);font-size:13px;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.swatches{display:flex;gap:8px;align-items:center}
+.sw{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);padding:0;position:relative}
+.sw[aria-pressed="true"]::after{content:"";position:absolute;inset:-5px;border:1px solid var(--ink);border-radius:50%}
+.sw.ivory{background:var(--ivory-deep)} .sw.cognac{background:var(--cognac)} .sw.black{background:var(--ink)}
+.sw-name{margin-left:6px}
+
+/* yacht band */
+.band{position:relative;background:var(--ink);color:var(--ivory);overflow:hidden}
+.band img{width:100%;height:clamp(240px,34vw,460px);object-fit:cover;object-position:center 60%;opacity:.92}
+.band .copy{position:absolute;inset:0;display:flex;align-items:center}
+.band .copy .wrap{width:100%;display:flex;justify-content:flex-end}
+.band h2{font-size:clamp(40px,6vw,88px);max-width:9ch;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.band h2 em{font-style:italic;font-weight:400}
+
+/* split feature */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.split .imgs{display:grid;grid-template-columns:3fr 2fr;gap:14px;align-items:end}
+.split .imgs img{width:100%;object-fit:cover}
+.split .imgs img:first-child{aspect-ratio:4/5}
+.split .imgs img:last-child{aspect-ratio:3/4}
+.split h2{font-size:clamp(40px,4.6vw,62px);color:var(--oxblood)}
+.split p{max-width:44ch}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;margin:30px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.spec dt{color:var(--muted)} .spec dd{margin:0;font-family:var(--label);font-size:13px;letter-spacing:.04em;align-self:center}
+@media (max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+
+/* details */
+.details{background:var(--ivory-deep)}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.trio figure{margin:0;display:flex;flex-direction:column;gap:16px}
+.trio img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.trio h3{font-size:30px;font-weight:400}
+.trio p{margin:0;color:var(--muted);font-size:18px}
+@media (max-width:760px){.trio{grid-template-columns:1fr}}
+
+/* limited */
+.limited .chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:48px}
+.chip{display:flex;flex-direction:column;gap:10px}
+.chip .tab{aspect-ratio:3/4;position:relative}
+.chip .tab::after{content:"";position:absolute;right:0;top:0;width:34%;aspect-ratio:1;background:var(--ivory);clip-path:polygon(100% 0,0 0,100% 100%);opacity:.9}
+.chip b{font-weight:400;font-size:22px;line-height:1.1}
+.chip .hex{font-family:var(--label);font-size:11px;color:var(--muted);letter-spacing:.08em}
+@media (max-width:760px){.limited .chips{grid-template-columns:repeat(2,minmax(0,1fr))}.chip:last-child{grid-column:1/-1}.chip:last-child .tab{aspect-ratio:3/1.4}}
+.signup{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;border:1px solid var(--line);padding:36px}
+.signup h3{font-size:36px}
+.signup form{display:flex;gap:0;flex-wrap:wrap}
+.signup input{flex:1 1 220px;min-width:0;font-family:var(--label);font-size:14px;padding:16px;border:1px solid var(--ink);border-right:0;background:var(--ivory);color:var(--ink)}
+.signup .ok{font-size:22px;color:var(--oxblood);margin:0}
+@media (max-width:760px){.signup{grid-template-columns:1fr;padding:24px}.signup input{border-right:1px solid var(--ink)}.signup .btn{width:100%;justify-content:center}}
+
+/* footer */
+footer{background:var(--oxblood);color:var(--ivory)}
+footer .wrap{padding-block:64px 40px;display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:40px}
+footer .logo{width:min(320px,100%)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:17px}
+footer a{text-decoration:none} footer a:hover{text-decoration:underline}
+footer .base{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(243,237,225,.25);padding-top:22px}
+footer .label-sm{color:rgba(243,237,225,.7)}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}footer .brand{grid-column:1/-1}}
+
+/* overlays */
+.scrim{position:fixed;inset:0;background:rgba(23,23,23,.45);z-index:80;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--ivory);z-index:90;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 22px) max(24px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 22px) 24px}
+.drawer.on{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px}
+.x{background:none;border:0;font-family:var(--label);font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:6px 0}
+.lines{flex:1;overflow:auto;display:flex;flex-direction:column;gap:18px;padding-block:20px}
+.line{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:start}
+.line img{width:76px;aspect-ratio:1;object-fit:cover;background:var(--ivory-deep)}
+.line h4{margin:0;font-weight:400;font-size:21px;line-height:1.1}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);margin-top:8px}
+.qty button{background:none;border:0;width:28px;height:28px}
+.qty span{font-family:var(--label);font-size:12px;min-width:20px;text-align:center}
+.rm{background:none;border:0;font-family:var(--label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:underline;margin-top:6px;padding:0}
+.empty{color:var(--muted);text-align:center;margin:auto 0}
+.drawer-foot{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:14px}
+.drawer-foot .row{display:flex;justify-content:space-between;align-items:baseline}
+.drawer-foot .btn{justify-content:center}
+.note{font-family:var(--label);font-size:11px;color:var(--muted);letter-spacing:.04em;margin:0;min-height:1em}
+
+.qv{position:fixed;z-index:90;left:50%;top:50%;width:min(1080px,calc(100% - 48px));max-height:calc(100% - 48px);overflow:auto;background:var(--ivory);transform:translate(-50%,-48%);opacity:0;pointer-events:none;transition:.3s;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.qv.on{opacity:1;transform:translate(-50%,-50%);pointer-events:auto}
+.qv .gal{background:var(--ivory-deep);display:flex;flex-direction:column;gap:10px;padding:16px}
+.qv .stage{aspect-ratio:1/1;position:relative;overflow:hidden}
+.qv .stage img{width:100%;height:100%;object-fit:cover}
+.qv .stage img.contain{object-fit:contain;padding:10%}
+.qv .thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.qv .thumbs button{padding:0;border:1px solid transparent;background:none;aspect-ratio:1}
+.qv .thumbs button[aria-current="true"]{border-color:var(--ink)}
+.qv .thumbs img{width:100%;height:100%;object-fit:cover}
+.qv .info{padding:36px 36px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.qv .info .x{align-self:flex-end;margin:-16px -6px 0 0}
+.qv h2{font-size:clamp(40px,4vw,56px);color:var(--oxblood)}
+.qv .tag{margin:-8px 0 0}
+.qv p{margin:0}
+.cw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cw button{background:var(--ivory-deep);border:1px solid transparent;padding:6px 6px 8px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.cw button[aria-pressed="true"]{border-color:var(--ink)}
+.cw img{width:100%;aspect-ratio:5/4;object-fit:contain}
+.qv .buy{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
+.qv .buy .price{font-size:16px}
+.qv .spec{margin:0;padding-top:16px;font-size:17px}
+@media (max-width:860px){
+  .qv{grid-template-columns:1fr;width:100%;max-height:100%;height:100%;top:0;left:0;transform:translateY(24px);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .qv.on{transform:none}
+  .qv .info{padding:24px max(20px,env(safe-area-inset-right,0px)) 32px max(20px,env(safe-area-inset-left,0px));order:-1}
+  .qv .info .x{position:sticky;top:0}
+}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,20px);background:var(--ink);color:var(--ivory);padding:12px 20px;z-index:100;opacity:0;transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pennant" viewBox="0 0 120 70">
+    <path d="M0 0 L120 35 L0 70 Z" fill="#7D1B20"/>
+    <text x="14" y="45" font-family="Cormorant Garamond,Georgia,serif" font-style="italic" font-weight="500" font-size="30" fill="#F3EDE1">R<tspan dx="-4" dy="6">S</tspan></text>
+  </symbol>
+</svg>
+
+<div class="announce"><div class="wrap"><span class="label">Complimentary monogramming on every piece</span></div></div>
+
+<header class="site">
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a class="label" href="#equipment">The Equipment</a>
+      <a class="label" href="#details">The Details</a>
+      <a class="label" href="#limited">Limited Editions</a>
+    </nav>
+    <a href="#top" aria-label="Resort Sport Ltd. home"><img class="logo" src="img/logo.png" alt="Resort Sport Ltd."></a>
+    <button class="bag-btn" id="bagOpen" aria-label="Open bag"><span class="label">Bag</span><span class="bag-count" id="bagCount">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="label" style="color:var(--cognac);margin-bottom:22px">Official equipment for time off.</div>
+        <h1>A higher form of <em>off duty.</em></h1>
+        <p class="lede">Canvas and vegetable-tanned leather, built for the weekend and finished for the yacht club. Five pieces, three colorways.</p>
+        <div class="actions">
+          <a class="btn" href="#equipment">Shop the equipment</a>
+          <a class="btn ghost" href="#details">See the details</a>
+        </div>
+      </div>
+      <figure class="hero-art" style="margin:0">
+        <img class="main" src="img/life-lounger.jpg" alt="The Duffel in ivory canvas on a sun lounger beside a martini and sunglasses">
+        <img class="inset" src="img/life-portofino.jpg" alt="A woman by the sea carrying The Portofino">
+        <svg class="pennant" viewBox="0 0 120 70" aria-hidden="true"><use href="#pennant"/></svg>
+        <figcaption class="label-sm">RS-01 The Duffel &nbsp;·&nbsp; RS-04 The Portofino</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="equipment" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label-sm" style="margin-bottom:14px">Collection 01 · Five pieces</div>
+          <h2>The Equipment</h2>
+        </div>
+        <p>Each piece carries a catalogue number, a stamped palladium plate and the RS monogram, embossed by hand.</p>
+      </div>
+      <div class="rail-scroll"><div class="rail" id="rail"></div></div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Travel lighter">
+    <img src="img/hero-yacht.jpg" alt="The RS pennant flying from the bow rail of a wooden launch off a rocky coast">
+    <div class="copy"><div class="wrap"><h2>Travel lighter. <em>Live bigger.</em></h2></div></div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <div class="imgs">
+        <img src="img/duffel-worn.jpg" alt="The Duffel carried on the shoulder by the pool">
+        <img src="img/duffel-detail0.jpg" alt="Palladium hardware with RS-stamped plate on The Duffel">
+      </div>
+      <div>
+        <div class="label-sm" style="margin-bottom:16px">RS-01 · The weekend essential</div>
+        <h2>The Duffel</h2>
+        <p style="margin-top:22px">Two nights, one bag. Heavyweight cotton canvas wrapped in cognac leather straps that run under the base and over the top, so the load sits on leather and the canvas stays clean.</p>
+        <dl class="spec">
+          <dt>Dimensions</dt><dd>50 × 27 × 27 cm</dd>
+          <dt>Body</dt><dd>16 oz cotton canvas</dd>
+          <dt>Trim</dt><dd>Vegetable-tanned leather</dd>
+          <dt>Hardware</dt><dd>Palladium, RS-stamped</dd>
+        </dl>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px">
+          <button class="btn" data-open="duffel">View The Duffel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec details" id="details">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label-sm" style="margin-bottom:14px">Brand elements</div>
+          <h2>The Details</h2>
+        </div>
+        <p>The small things you notice on the second day.</p>
+      </div>
+      <div class="trio">
+        <figure>
+          <img src="img/el-hardware.jpg" alt="Custom palladium buckle stamped with RS">
+          <figcaption><div class="label-sm" style="margin-bottom:8px">Custom hardware</div><h3>Stamped palladium</h3><p>Every buckle and zip pull is cast for us and stamped with the RS plate. It won't tarnish in salt air.</p></figcaption>
+        </figure>
+        <figure>
+          <img src="img/el-emboss.jpg" alt="RS monogram blind-embossed in cognac leather">
+          <figcaption><div class="label-sm" style="margin-bottom:8px">Embossed monogram</div><h3>Blind-embossed RS</h3><p>Pressed into the leather with no foil or ink. Add your own initials beside it at no charge.</p></figcaption>
+        </figure>
+        <figure>
+          <img src="img/el-label.jpg" alt="Woven interior label reading Resort Sport Ltd., Official equipment for time off">
+          <figcaption><div class="label-sm" style="margin-bottom:8px">Interior label</div><h3>Official equipment</h3><p>A woven label inside every piece, the same one sewn into the first sample.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec limited" id="limited">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label-sm" style="margin-bottom:14px">Seasonal, in small numbers</div>
+          <h2>Limited Editions</h2>
+        </div>
+        <p>Each season one accent color comes to the full collection, then retires.</p>
+      </div>
+      <div class="chips">
+        <div class="chip"><div class="tab" style="background:var(--oxblood)"></div><b>Oxblood</b><span class="hex">#7D1B20</span></div>
+        <div class="chip"><div class="tab" style="background:var(--aqua)"></div><b>Pool Aqua</b><span class="hex">#8FC8C6</span></div>
+        <div class="chip"><div class="tab" style="background:var(--cabana)"></div><b>Cabana Red</b><span class="hex">#A62D38</span></div>
+        <div class="chip"><div class="tab" style="background:var(--butter)"></div><b>Butter Yellow</b><span class="hex">#E7C66E</span></div>
+        <div class="chip"><div class="tab" style="background:var(--racing)"></div><b>Racing Green</b><span class="hex">#284A3C</span></div>
+      </div>
+      <div class="signup">
+        <div>
+          <div class="label-sm" style="margin-bottom:12px">The members' list</div>
+          <h3>Hear about the next color first.</h3>
+        </div>
+        <div id="signupBox">
+          <form id="signup" novalidate>
+            <label for="email" class="label-sm" style="flex-basis:100%;margin-bottom:10px">Email address</label>
+            <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            <button class="btn" type="submit">Join the list</button>
+            <p class="note" id="signupErr" style="flex-basis:100%;margin-top:10px"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <img class="logo" src="img/logo-ivory.png" alt="Resort Sport Ltd.">
+      <p class="label" style="margin-top:22px">Official equipment for time off.</p>
+    </div>
+    <div><div class="label-sm" style="margin-bottom:14px">Shop</div><ul><li><a href="#equipment">The Equipment</a></li><li><a href="#limited">Limited Editions</a></li><li><a href="#details">Monogramming</a></li></ul></div>
+    <div><div class="label-sm" style="margin-bottom:14px">Service</div><ul><li>Shipping &amp; returns</li><li>Care guide</li><li>Repairs</li></ul></div>
+    <div><div class="label-sm" style="margin-bottom:14px">House</div><ul><li>About</li><li>Journal</li><li>Stockists</li></ul></div>
+    <div class="base"><span class="label-sm">© 2026 Resort Sport Ltd.</span><span class="label-sm">Elegant / Modern / Sporting / Relaxed / Global</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-label="Your bag" aria-hidden="true">
+  <div class="drawer-head"><span class="label">Your bag</span><button class="x" data-close>Close</button></div>
+  <div class="lines" id="lines"></div>
+  <div class="drawer-foot">
+    <div class="row"><span class="label-sm">Subtotal</span><span class="price" id="subtotal">$0</span></div>
+    <p class="note">Shipping and monogramming are complimentary.</p>
+    <button class="btn" id="checkout">Check out</button>
+    <p class="note" id="checkoutNote"></p>
+  </div>
+</aside>
+
+<div class="qv" id="qv" role="dialog" aria-modal="true" aria-labelledby="qvName" aria-hidden="true">
+  <div class="gal">
+    <div class="stage"><img id="qvStage" alt=""></div>
+    <div class="thumbs" id="qvThumbs"></div>
+  </div>
+  <div class="info">
+    <button class="x" data-close>Close</button>
+    <div class="label-sm" id="qvCode"></div>
+    <h2 id="qvName"></h2>
+    <p class="label-sm tag" id="qvTag"></p>
+    <p id="qvDesc"></p>
+    <div>
+      <div class="label-sm" style="margin-bottom:10px">Colorway · <span id="qvColor" style="color:var(--ink)"></span></div>
+      <div class="cw" id="qvCw"></div>
+    </div>
+    <div class="buy"><span class="price" id="qvPrice"></span><button class="btn" id="qvAdd">Add to bag</button></div>
+    <dl class="spec" id="qvSpec"></dl>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const COLORS = {
+  ivory:  {name:"Ivory",  note:"Canvas & leather", add:0},
+  cognac: {name:"Cognac", note:"Full leather",     add:350},
+  black:  {name:"Black",  note:"Full leather",     add:350}
+};
+const PRODUCTS = [
+  {id:"duffel", code:"RS-01", name:"The Duffel", tag:"The weekend essential", price:1450,
+   desc:"Two nights, one bag. Leather straps run under the base and over the top, with a detachable shoulder strap and a zip pocket inside.",
+   spec:[["Dimensions","50 × 27 × 27 cm"],["Carry","Top handles, shoulder strap"],["Hardware","Palladium, RS-stamped"]],
+   details:["Hardware","Zip pull","Monogram"]},
+  {id:"racer", code:"RS-02", name:"The Racer", tag:"The everyday essential", price:495,
+   desc:"Worn across the body or at the waist. Holds a phone, sunglasses, keys and a paperback.",
+   spec:[["Dimensions","30 × 14 × 7 cm"],["Carry","Adjustable strap"],["Hardware","Palladium, RS-stamped"]],
+   details:["Zip pull","Edge finish","Strap buckle"]},
+  {id:"riviera", code:"RS-03", name:"The Riviera", tag:"The beach carryall", price:895,
+   desc:"An open tote big enough for two towels. Long handles go over the shoulder with a coat on, and a snap tab keeps the top closed.",
+   spec:[["Dimensions","46 × 32 × 18 cm"],["Carry","Shoulder handles"],["Lining","Wipe-clean, with zip pocket"]],
+   details:["Zip pocket","Piping","Monogram"]},
+  {id:"portofino", code:"RS-04", name:"The Portofino", tag:"The handbag", price:1250,
+   desc:"A structured handbag on a polished arc handle, with a detachable strap for wearing it on the shoulder.",
+   spec:[["Dimensions","30 × 20 × 12 cm"],["Carry","Arc handle, shoulder strap"],["Hardware","Polished palladium arc"]],
+   details:["Arc handle","Zip pull","Monogram"]},
+  {id:"regatta", code:"RS-05", name:"The Regatta", tag:"The backpack", price:1150,
+   desc:"A flap backpack with a buckled front strap, two zip side pockets and a padded sleeve for a 14-inch laptop.",
+   spec:[["Dimensions","32 × 40 × 16 cm"],["Carry","Padded leather straps"],["Laptop","Fits 14 in"]],
+   details:["Buckle","Front strap","Monogram"]}
+];
+const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
+const fmt = n => "$" + n.toLocaleString("en-US");
+const priceOf = (p, c) => p.price + COLORS[c].add;
+const img = (id, k) => `img/${id}-${k}.jpg`;
+const $ = s => document.querySelector(s);
+
+/* rail */
+$("#rail").innerHTML = PRODUCTS.map(p => `
+  <article class="card" data-id="${p.id}">
+    <button class="shot" data-open="${p.id}" data-color="ivory" aria-label="Quick view ${p.name}">
+      <span class="code">${p.code}</span>
+      <img class="base" src="${img(p.id,'hero')}" alt="">
+      <img class="alt" src="${img(p.id,'cognac')}" alt="">
+      <span class="quick label">Quick view</span>
+    </button>
+    <div class="row"><h3>${p.name}</h3><span class="price">${fmt(p.price)}</span></div>
+    <div class="row">
+      <div class="swatches" role="group" aria-label="Colorway">
+        ${Object.keys(COLORS).map((c,i) => `<button class="sw ${c}" data-sw="${c}" aria-pressed="${i===0}" aria-label="${COLORS[c].name}"></button>`).join("")}
+        <span class="label-sm sw-name">Ivory</span>
+      </div>
+    </div>
+  </article>`).join("");
+
+document.querySelectorAll(".card").forEach(card => {
+  const p = byId[card.dataset.id], shot = card.querySelector(".shot"), alt = card.querySelector(".alt");
+  card.querySelectorAll("[data-sw]").forEach(b => b.addEventListener("click", () => {
+    const c = b.dataset.sw;
+    card.querySelectorAll("[data-sw]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    if (c !== "ivory") alt.src = img(p.id, c);
+    shot.dataset.color = c;
+    card.querySelector(".sw-name").textContent = COLORS[c].name;
+    card.querySelector(".price").textContent = fmt(priceOf(p, c));
+  }));
+});
+
+/* bag */
+let bag = [];
+try { bag = JSON.parse(localStorage.getItem("rs-bag") || "[]").filter(l => byId[l.id] && COLORS[l.c]); } catch (e) { bag = []; }
+const save = () => { try { localStorage.setItem("rs-bag", JSON.stringify(bag)); } catch (e) {} };
+function renderBag() {
+  const n = bag.reduce((a, l) => a + l.q, 0);
+  $("#bagCount").textContent = n;
+  $("#subtotal").textContent = fmt(bag.reduce((a, l) => a + l.q * priceOf(byId[l.id], l.c), 0));
+  $("#lines").innerHTML = bag.length ? bag.map((l, i) => {
+    const p = byId[l.id];
+    return `<div class="line">
+      <img src="${img(p.id, l.c === 'ivory' ? 'hero' : l.c)}" alt="">
+      <div><div class="label-sm">${p.code} · ${COLORS[l.c].name}</div><h4>${p.name}</h4>
+        <div class="qty"><button data-q="${i}" data-d="-1" aria-label="Decrease quantity">−</button><span>${l.q}</span><button data-q="${i}" data-d="1" aria-label="Increase quantity">+</button></div><br>
+        <button class="rm" data-rm="${i}">Remove</button></div>
+      <span class="price">${fmt(l.q * priceOf(p, l.c))}</span></div>`;
+  }).join("") : `<p class="empty">Your bag is empty.<br><a href="#equipment" data-close class="label-sm">Browse the equipment</a></p>`;
+  $("#checkout").disabled = !bag.length;
+  $("#checkoutNote").textContent = "";
+}
+function add(id, c) {
+  const l = bag.find(x => x.id === id && x.c === c);
+  l ? l.q++ : bag.push({id, c, q:1});
+  save(); renderBag(); toast(`${byId[id].name} in ${COLORS[c].name} added to your bag`);
+}
+$("#lines").addEventListener("click", e => {
+  const q = e.target.closest("[data-q]"), rm = e.target.closest("[data-rm]");
+  if (q) { const l = bag[+q.dataset.q]; l.q += +q.dataset.d; if (l.q < 1) bag.splice(+q.dataset.q, 1); }
+  else if (rm) bag.splice(+rm.dataset.rm, 1);
+  else return;
+  save(); renderBag();
+});
+$("#checkout").addEventListener("click", () => {
+  $("#checkoutNote").textContent = "Checkout isn't connected in this preview.";
+});
+
+/* overlays */
+let lastFocus = null;
+function openLayer(el) {
+  lastFocus = document.activeElement;
+  closeAll(true);
+  el.classList.add("on"); el.setAttribute("aria-hidden", "false");
+  $("#scrim").classList.add("on");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => el.querySelector("[data-close]").focus(), 50);
+}
+function closeAll(keepFocus) {
+  ["#drawer", "#qv"].forEach(s => { $(s).classList.remove("on"); $(s).setAttribute("aria-hidden", "true"); });
+  $("#scrim").classList.remove("on");
+  document.body.style.overflow = "";
+  if (!keepFocus && lastFocus) lastFocus.focus();
+}
+$("#bagOpen").addEventListener("click", () => openLayer($("#drawer")));
+$("#scrim").addEventListener("click", () => closeAll());
+document.addEventListener("click", e => { if (e.target.closest("[data-close]")) closeAll(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeAll(); });
+
+/* quick view */
+let cur = null;
+function setStage(src, contain) {
+  const s = $("#qvStage"); s.src = src; s.classList.toggle("contain", !!contain);
+}
+function setColor(c) {
+  cur.c = c; const p = cur.p;
+  $("#qvColor").textContent = `${COLORS[c].name} · ${COLORS[c].note}`;
+  $("#qvPrice").textContent = fmt(priceOf(p, c));
+  $("#qvCw").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
+  if (c === "ivory") { setStage(img(p.id, "hero")); markThumb(0); }
+  else { setStage(img(p.id, c), true); markThumb(-1); }
+}
+function markThumb(i) { $("#qvThumbs").querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === i)); }
+function openQV(id) {
+  const p = byId[id]; cur = {p, c:"ivory"};
+  $("#qvCode").textContent = `${p.code} / Collection 01`;
+  $("#qvName").textContent = p.name;
+  $("#qvTag").textContent = p.tag;
+  $("#qvDesc").textContent = p.desc;
+  $("#qvSpec").innerHTML = p.spec.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("") + `<dt>Monogram</dt><dd>Up to 3 initials, complimentary</dd>`;
+  const shots = [["hero","Studio"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]];
+  $("#qvThumbs").innerHTML = shots.map(([k, l], i) => `<button data-k="${k}" aria-label="${l}" aria-current="${i===0}"><img src="${img(p.id,k)}" alt=""></button>`).join("");
+  $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => { setStage(img(p.id, b.dataset.k)); markThumb(i); }));
+  $("#qvStage").alt = `${p.name}`;
+  $("#qvCw").innerHTML = Object.keys(COLORS).map(c => `<button data-c="${c}" aria-pressed="false"><img src="${img(p.id,c)}" alt=""><span class="label-sm">${COLORS[c].name}</span></button>`).join("");
+  $("#qvCw").querySelectorAll("button").forEach(b => b.addEventListener("click", () => setColor(b.dataset.c)));
+  const cardColor = document.querySelector(`.card[data-id="${id}"] .shot`)?.dataset.color || "ivory";
+  setColor(cardColor);
+  openLayer($("#qv"));
+}
+document.addEventListener("click", e => { const o = e.target.closest("[data-open]"); if (o) openQV(o.dataset.open); });
+$("#qvAdd").addEventListener("click", () => { add(cur.p.id, cur.c); closeAll(); openLayer($("#drawer")); });
+
+/* signup */
+$("#signup").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = $("#email").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { $("#signupErr").textContent = "Enter an email address like name@example.com."; return; }
+  $("#signupBox").innerHTML = `<p class="ok">You're on the list. We'll write to ${v.replace(/[<>&"]/g, "")} before the next color is released.</p>`;
+});
+
+/* toast */
+let tt;
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2400); }
+
+renderBag();
+</script>
+</body>
+</html>
