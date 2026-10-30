@@ -12,7 +12,7 @@ A one-page storefront prototype for Resort Sport Ltd. that shows the five-piece 
 | RS-04 | The Portofino | Handbag            | $495–$695       |
 | RS-05 | The Regatta   | Backpack           | $525–$725       |
 
-Every bag comes in four permanent colorways: **Heritage** (ivory canvas and cognac leather), **Cognac**, **Latte** (cream leather) and **Noir** (black leather). That makes 20 core variations. All bags have a sand-colored lining, silver-tone hardware, a tonal RS monogram and protected leather or canvas finishes.
+Every bag comes in four permanent colorways: **Heritage** (natural canvas and cognac leather), **Avorio** (ivory leather), **Cognac** and **Nero** (black leather). That makes 20 core variations. All bags have a sand-colored lining, silver-tone hardware, a tonal RS monogram and protected leather or canvas finishes.
 
 ## What's on the page
 
@@ -25,13 +25,15 @@ The homepage follows the V1 editorial copy, in this order:
 5. The Details: leather, hardware and close-ups
 6. The four colorways, shown on the Portofino
 7. The Journal: three proposed stories
-8. Limited Issues: the Rally in Pool Aqua, shown as a concept
+8. Limited Issues: the Rally in Curaçao, shown as a concept
 9. Correspondence: the email sign-up
 10. Footer
 
 Each product opens a quick view with colorways, price and specs. The bag keeps items in the browser's local storage and uses the brand's microcopy ("A fine choice", "Until next time").
 
 ## Brand system in the code
+
+- Colorways: Heritage (the house signature), Avorio, Cognac and Nero are permanent and named plainly. Limited Issues take cocktail names (Curaçao, Negroni, Limoncello), so the playfulness sits with the exceptions.
 
 - Collection name: Collection 01
 - Type: Instrument Serif for headlines and body, Space Grotesk for labels

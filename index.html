@@ -39,7 +39,7 @@
   /* tints for product panels, mixed from the accents (no off-system colors) */
   --aqua-pale:color-mix(in srgb, var(--aqua) 32%, var(--ivory));
   --blush:color-mix(in srgb, var(--cabana) 16%, var(--ivory));
-  --latte:#DCCDB3;      /* colorway swatch only */
+  --avorio:#DCCDB3;     /* Avorio colorway swatch only */
   --line:#D8CCB4;
   --muted:#6E6153;
   --display:"Instrument Serif","Canela",Georgia,"Times New Roman",serif;
@@ -168,7 +168,7 @@ header.site .logo{width:190px}
 .swatches{display:flex;gap:9px;align-items:center}
 .sw{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);padding:0;position:relative}
 .sw[aria-pressed="true"]::after{content:"";position:absolute;inset:-5px;border:1px solid var(--ink);border-radius:50%}
-.sw.heritage{background:linear-gradient(135deg,var(--ivory-deep) 50%,var(--cognac) 50%)} .sw.cognac{background:var(--cognac)} .sw.latte{background:var(--latte)} .sw.noir{background:var(--ink)}
+.sw.heritage{background:linear-gradient(135deg,var(--ivory-deep) 50%,var(--cognac) 50%)} .sw.cognac{background:var(--cognac)} .sw.avorio{background:var(--avorio)} .sw.nero{background:var(--ink)}
 .sw-name{margin-left:4px}
 .regatta{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr);gap:20px;background:var(--ivory-deep);margin-top:20px}
 .regatta .pic{position:relative;min-height:360px}
@@ -382,7 +382,7 @@ footer .label-sm{color:rgba(243,237,225,.6)}
           <img src="img/life-lounger.jpg" alt="The Monaco in Heritage on a sun lounger beside a martini">
           <figcaption>Fig. 1: Somewhere with a lounger.</figcaption>
         </figure>
-        <img class="bag" src="img/portofino-studio-heritage.webp" alt="The Portofino in Heritage, ivory canvas with cognac leather and a polished arc handle">
+        <img class="bag" src="img/portofino-studio-heritage.webp" alt="The Portofino in Heritage, natural canvas with cognac leather and a polished arc handle">
         <svg class="pennant" viewBox="0 0 120 70" aria-hidden="true"><use href="#pennant"/></svg>
       </div>
     </div>
@@ -447,7 +447,7 @@ footer .label-sm{color:rgba(243,237,225,.6)}
       <div class="pair">
         <figure>
           <img src="img/el-emboss.jpg" alt="Tonal RS monogram pressed into cognac leather">
-          <img src="img/regatta-detail1.jpg" alt="Stitched cognac leather strap on ivory canvas">
+          <img src="img/regatta-detail1.jpg" alt="Stitched cognac leather strap on natural canvas">
           <figcaption><div class="label-sm">Leather</div><h3>A softer approach.</h3><p>Supple, fine-grain leathers, selected for their feel and refined finish.</p></figcaption>
         </figure>
         <figure>
@@ -459,7 +459,7 @@ footer .label-sm{color:rgba(243,237,225,.6)}
       <div class="closeups">
         <figure><img src="img/duffel-detail1.jpg" alt="RS-stamped zip pull on cognac leather"><figcaption class="label-sm">The zip pull</figcaption></figure>
         <figure><img src="img/riviera-detail0.jpg" alt="Interior zip pocket against the sand-colored lining"><figcaption class="label-sm">The sand lining</figcaption></figure>
-        <figure><img src="img/riviera-detail1.jpg" alt="Cognac piping along an ivory canvas edge"><figcaption class="label-sm">The piping</figcaption></figure>
+        <figure><img src="img/riviera-detail1.jpg" alt="Cognac piping along a natural canvas edge"><figcaption class="label-sm">The piping</figcaption></figure>
         <figure><img src="img/el-label.jpg" alt="Woven interior label: Resort Sport Ltd., Official equipment for time off"><figcaption class="label-sm">The label</figcaption></figure>
       </div>
     </div>
@@ -519,7 +519,7 @@ footer .label-sm{color:rgba(243,237,225,.6)}
         <div class="label-sm kicker">The occasional departure from the ordinary</div>
         <h2>Some things are worth making an <em>exception</em> for.</h2>
         <p>Unexpected color. Familiar favorites. A little something for the season.</p>
-        <div class="issue">Limited Issue 001 / The Rally in Pool Aqua</div><br>
+        <div class="issue">Limited Issue 001 / The Rally in Curaçao</div><br>
         <button class="btn" data-soon="Limited Issue 001 is still in the sun. Join the list below to hear first.">Discover Limited Issues</button>
       </div>
     </div>
@@ -607,14 +607,14 @@ footer .label-sm{color:rgba(243,237,225,.6)}
 
 <script>
 const COLORS = {
-  heritage: {name:"Heritage", note:"Ivory canvas & cognac leather", line:"Ivory canvas. Cognac leather. A classic combination for very good reasons."},
+  heritage: {name:"Heritage", note:"Natural canvas & cognac leather", line:"Natural canvas. Cognac leather. A classic combination for very good reasons."},
   cognac:   {name:"Cognac",   note:"Cognac leather", line:"Warm, rich, and exceptionally well-traveled."},
-  latte:    {name:"Latte",    note:"Cream leather",  line:"Soft cream leather. Quietly impossible to ignore."},
-  noir:     {name:"Noir",     note:"Black leather",  line:"All-black leather. No introduction necessary."}
+  avorio:   {name:"Avorio",   note:"Ivory leather",  line:"Soft ivory leather. Quietly impossible to ignore."},
+  nero:     {name:"Nero",     note:"Black leather",  line:"All-black leather. No introduction necessary."}
 };
 const PERMANENT = Object.keys(COLORS);
 /* board crops are saved under the brand board's old names */
-const BOARD = {heritage:"ivory", cognac:"cognac", noir:"black"};
+const BOARD = {heritage:"ivory", cognac:"cognac", nero:"black"};
 /* range = proposed retail [low, high]; placeholder rule: Heritage at the low end, all-leather at the high end */
 const PRODUCTS = [
   {id:"duffel", slot:"monaco", code:"RS-01", name:"The Monaco", tag:"The travel duffel", say:"For leaving well.", range:[695,895],
@@ -624,7 +624,7 @@ const PRODUCTS = [
   {id:"portofino", slot:"portofino", code:"RS-04", name:"The Portofino", tag:"The handbag", say:"A very good entrance.", range:[495,695],
    desc:"A structured handbag on a polished arc handle, with a detachable strap for wearing it on the shoulder.",
    spec:[["Carry","Arc handle, shoulder strap"]], details:["Arc handle","Zip pull","Monogram"],
-   cover:"studio", studio:{heritage:"portofino-studio-heritage.webp", latte:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", noir:"portofino-studio-black.webp"}},
+   cover:"studio", studio:{heritage:"portofino-studio-heritage.webp", avorio:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", nero:"portofino-studio-black.webp"}},
   {id:"racer", slot:"rally", code:"RS-02", name:"The Rally", tag:"The belt bag", say:"Hands free. Plans optional.", range:[275,350],
    desc:"Worn across the body or at the waist. Holds a phone, sunglasses, keys and a paperback.",
    spec:[["Carry","Adjustable strap"]], details:["Zip pull","Edge finish","Strap buckle"]},
@@ -703,7 +703,8 @@ $("#lineup").innerHTML = PERMANENT.map(c => `
 
 /* bag */
 let bag = [];
-try { bag = JSON.parse(localStorage.getItem("rs-bag") || "[]").filter(l => byId[l.id] && COLORS[l.c]); } catch (e) { bag = []; }
+const RENAMED = {latte:"avorio", noir:"nero"};
+try { bag = JSON.parse(localStorage.getItem("rs-bag") || "[]").map(l => ({...l, c: RENAMED[l.c] || l.c})).filter(l => byId[l.id] && COLORS[l.c]); } catch (e) { bag = []; }
 const save = () => { try { localStorage.setItem("rs-bag", JSON.stringify(bag)); } catch (e) {} };
 function renderBag() {
   $("#bagCount").textContent = bag.reduce((a, l) => a + l.q, 0);
