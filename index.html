@@ -144,21 +144,6 @@ header.site .logo{width:190px}
 .trio p{margin:0;color:var(--muted);font-size:18px}
 @media (max-width:760px){.trio{grid-template-columns:1fr}}
 
-/* limited */
-.limited .chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:48px}
-.chip{display:flex;flex-direction:column;gap:10px}
-.chip .tab{aspect-ratio:3/4;position:relative}
-.chip .tab::after{content:"";position:absolute;right:0;top:0;width:34%;aspect-ratio:1;background:var(--ivory);clip-path:polygon(100% 0,0 0,100% 100%);opacity:.9}
-.chip b{font-weight:400;font-size:22px;line-height:1.1}
-.chip .hex{font-family:var(--label);font-size:11px;color:var(--muted);letter-spacing:.08em}
-@media (max-width:760px){.limited .chips{grid-template-columns:repeat(2,minmax(0,1fr))}.chip:last-child{grid-column:1/-1}.chip:last-child .tab{aspect-ratio:3/1.4}}
-.signup{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;border:1px solid var(--line);padding:36px}
-.signup h3{font-size:36px}
-.signup form{display:flex;gap:0;flex-wrap:wrap}
-.signup input{flex:1 1 220px;min-width:0;font-family:var(--label);font-size:14px;padding:16px;border:1px solid var(--ink);border-right:0;background:var(--ivory);color:var(--ink)}
-.signup .ok{font-size:22px;color:var(--oxblood);margin:0}
-@media (max-width:760px){.signup{grid-template-columns:1fr;padding:24px}.signup input{border-right:1px solid var(--ink)}.signup .btn{width:100%;justify-content:center}}
-
 /* footer */
 footer{background:var(--oxblood);color:var(--ivory)}
 footer .wrap{padding-block:64px 40px;display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:40px}
@@ -244,7 +229,6 @@ footer .label-sm{color:rgba(243,237,225,.7)}
     <nav aria-label="Primary">
       <a class="label" href="#equipment">The Equipment</a>
       <a class="label" href="#details">The Details</a>
-      <a class="label" href="#limited">Limited Editions</a>
     </nav>
     <a href="#top" aria-label="Resort Sport Ltd. home"><img class="logo" src="img/logo.png" alt="Resort Sport Ltd."></a>
     <button class="bag-btn" id="bagOpen" aria-label="Open bag"><span class="label">Bag</span><span class="bag-count" id="bagCount">0</span></button>
@@ -282,6 +266,15 @@ footer .label-sm{color:rgba(243,237,225,.7)}
         <p>Every bag comes in Heritage, Cognac, Latte and Noir, with a sand-colored lining, silver-tone hardware and a tonal RS monogram.</p>
       </div>
       <div class="rail-scroll"><div class="rail" id="rail"></div></div>
+      <div class="feature-ltd" style="margin-top:56px;margin-bottom:0">
+        <img src="img/portofino-studio-heritage.webp" alt="The Portofino in ivory canvas with cognac leather trim and a striped strap" loading="lazy">
+        <div>
+          <div class="label-sm">Available now · RS-04</div>
+          <h3>The Portofino in Heritage</h3>
+          <p>Ivory canvas with cognac leather trim and a striped webbing strap, on the polished arc handle.</p>
+          <button class="btn" data-open="portofino" data-color="heritage">Shop the Heritage Portofino</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -340,47 +333,6 @@ footer .label-sm{color:rgba(243,237,225,.7)}
     </div>
   </section>
 
-  <section class="sec limited" id="limited">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <div class="label-sm" style="margin-bottom:14px">Seasonal, in small numbers</div>
-          <h2>Limited Editions</h2>
-        </div>
-        <p>Each season one accent color comes to the full collection, then retires.</p>
-      </div>
-      <div class="chips">
-        <div class="chip"><div class="tab" style="background:var(--oxblood)"></div><b>Oxblood</b><span class="hex">#7D1B20</span></div>
-        <div class="chip"><div class="tab" style="background:var(--aqua)"></div><b>Pool Aqua</b><span class="hex">#8FC8C6</span></div>
-        <div class="chip"><div class="tab" style="background:var(--cabana)"></div><b>Cabana Red</b><span class="hex">#A62D38</span></div>
-        <div class="chip"><div class="tab" style="background:var(--butter)"></div><b>Butter Yellow</b><span class="hex">#E7C66E</span></div>
-        <div class="chip"><div class="tab" style="background:var(--racing)"></div><b>Racing Green</b><span class="hex">#284A3C</span></div>
-      </div>
-      <div class="feature-ltd">
-        <img src="img/portofino-studio-oxblood.webp" alt="The Portofino in ivory canvas with oxblood leather trim and a striped strap" loading="lazy">
-        <div>
-          <div class="label-sm">Available now · RS-04 Limited Edition</div>
-          <h3>The Portofino in Oxblood</h3>
-          <p>Ivory canvas with oxblood leather trim and a striped webbing strap, made in one run for this season.</p>
-          <button class="btn" data-open="portofino" data-color="oxblood">Shop the Oxblood Portofino</button>
-        </div>
-      </div>
-      <div class="signup">
-        <div>
-          <div class="label-sm" style="margin-bottom:12px">The members' list</div>
-          <h3>Hear about the next color first.</h3>
-        </div>
-        <div id="signupBox">
-          <form id="signup" novalidate>
-            <label for="email" class="label-sm" style="flex-basis:100%;margin-bottom:10px">Email address</label>
-            <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-            <button class="btn" type="submit">Join the list</button>
-            <p class="note" id="signupErr" style="flex-basis:100%;margin-top:10px"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -389,7 +341,7 @@ footer .label-sm{color:rgba(243,237,225,.7)}
       <img class="logo" src="img/logo-ivory.png" alt="Resort Sport Ltd.">
       <p class="label" style="margin-top:22px">Official equipment for time off.</p>
     </div>
-    <div><div class="label-sm" style="margin-bottom:14px">Shop</div><ul><li><a href="#equipment">The Equipment</a></li><li><a href="#limited">Limited Editions</a></li><li><a href="#details">Monogramming</a></li></ul></div>
+    <div><div class="label-sm" style="margin-bottom:14px">Shop</div><ul><li><a href="#equipment">The Equipment</a></li><li><a href="#details">Monogramming</a></li></ul></div>
     <div><div class="label-sm" style="margin-bottom:14px">Service</div><ul><li>Shipping &amp; returns</li><li>Care guide</li><li>Repairs</li></ul></div>
     <div><div class="label-sm" style="margin-bottom:14px">House</div><ul><li>About</li><li>Journal</li><li>Stockists</li></ul></div>
     <div class="base"><span class="label-sm">© 2026 Resort Sport Ltd.</span><span class="label-sm">Elegant / Modern / Sporting / Relaxed / Global</span></div>
@@ -436,8 +388,7 @@ const COLORS = {
   heritage: {name:"Heritage", note:"Ivory canvas & cognac leather"},
   cognac:   {name:"Cognac",   note:"Cognac leather"},
   latte:    {name:"Latte",    note:"Cream leather"},
-  noir:     {name:"Noir",     note:"Black leather"},
-  oxblood:  {name:"Oxblood",  note:"Ivory canvas & oxblood leather", limited:true}
+  noir:     {name:"Noir",     note:"Black leather"}
 };
 /* board crops are saved under the brand board's old names */
 const BOARD = {heritage:"ivory", cognac:"cognac", noir:"black"};
@@ -460,8 +411,7 @@ const PRODUCTS = [
    desc:"A structured handbag on a polished arc handle, with a detachable strap for wearing it on the shoulder.",
    spec:[["Dimensions","30 × 20 × 12 cm"],["Carry","Arc handle, shoulder strap"]],
    details:["Arc handle","Zip pull","Monogram"],
-   extra:["oxblood"],
-   studio:{latte:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", noir:"portofino-studio-black.webp", oxblood:"portofino-studio-oxblood.webp"}},
+   studio:{heritage:"portofino-studio-heritage.webp", latte:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", noir:"portofino-studio-black.webp"}},
   {id:"regatta", code:"RS-05", name:"The Regatta", tag:"Backpack", range:[525,725],
    desc:"A flap backpack with a buckled front strap, two zip side pockets and a padded sleeve for a 14-inch laptop.",
    spec:[["Dimensions","32 × 40 × 16 cm"],["Carry","Padded leather straps"],["Laptop","Fits 14 in"]],
@@ -606,14 +556,6 @@ function openQV(id, color) {
 }
 document.addEventListener("click", e => { const o = e.target.closest("[data-open]"); if (o) openQV(o.dataset.open, o.dataset.color); });
 $("#qvAdd").addEventListener("click", () => { add(cur.p.id, cur.c); closeAll(); openLayer($("#drawer")); });
-
-/* signup */
-$("#signup").addEventListener("submit", e => {
-  e.preventDefault();
-  const v = $("#email").value.trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { $("#signupErr").textContent = "Enter an email address like name@example.com."; return; }
-  $("#signupBox").innerHTML = `<p class="ok">You're on the list. We'll write to ${v.replace(/[<>&"]/g, "")} before the next color is released.</p>`;
-});
 
 /* toast */
 let tt;

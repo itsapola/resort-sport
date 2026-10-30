@@ -16,11 +16,11 @@ Every bag comes in four permanent colorways: **Heritage** (ivory canvas and cogn
 
 ## What's on the page
 
-- Product cards with the four permanent colorways, plus the limited-edition Oxblood Portofino
+- Product cards with the four permanent colorways
+- A feature for the Portofino in Heritage
 - Studio cutout photos (`img/*-studio-*.webp`) for the Duffel and Portofino
 - A quick view for each product, with photos, colorway picker and specs
 - A bag that keeps items in the browser's local storage
-- A sign-up list for limited-edition colors
 
 ## Running it
 
@@ -34,9 +34,9 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 
 ## Notes
 
-- Prices are proposed retail ranges, not final MSRP. Until per-variant pricing is set, the page charges the low end for Heritage and the high end for the all-leather colorways (and for Oxblood).
+- Prices are proposed retail ranges, not final MSRP. Until per-variant pricing is set, the page charges the low end for Heritage and the high end for the all-leather colorways.
 - Dimensions and product copy are placeholders.
 - Colorways without a photo yet show the Heritage photo with a "Photo to come" tag.
 - Cormorant Garamond stands in for Canela, which isn't available as a free web font.
 - The Duffel and Portofino use studio photography. The Racer, Riviera and Regatta still use crops from the brand boards.
-- Checkout and email sign-up don't send anything anywhere yet.
+- Checkout isn't connected yet.
