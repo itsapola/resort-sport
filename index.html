@@ -6,7 +6,7 @@
 <title>Resort Sport Ltd.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Space+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500&display=swap">
 <style>
 /* Layout: a vintage resort magazine. Sun-yellow cover, then the shop (editorial 12-col grid),
    an oxblood "members' club" spread, the details, the colorway line-up, journal, Limited Issues, letters.
@@ -24,7 +24,7 @@
   --latte:#DCCDB3;
   --line:#D8CCB4;
   --muted:#6E6153;
-  --display:"Cormorant Garamond","Canela",Georgia,"Times New Roman",serif;
+  --display:"Instrument Serif","Canela",Georgia,"Times New Roman",serif;
   --label:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
   --gutter:max(20px, env(safe-area-inset-left, 0px));
   --gutter-r:max(20px, env(safe-area-inset-right, 0px));
@@ -32,7 +32,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--display);font-size:19px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--display);font-size:20px;line-height:1.45;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--oxblood)}
 img{display:block;max-width:100%}
 a{color:inherit}
@@ -42,8 +42,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .label{font-family:var(--label);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
 .label-sm{font-family:var(--label);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
 h1,h2,h3{font-weight:400;line-height:.98;margin:0;text-wrap:balance;letter-spacing:-.015em}
-.display{font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
-.display em{font-style:italic;text-transform:none;font-weight:500;letter-spacing:-.01em}
+.display{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.02em;line-height:.86}
+.display em{font-style:italic;text-transform:none;font-weight:400;letter-spacing:-.01em}
 .btn{display:inline-flex;align-items:center;gap:.8em;font-family:var(--label);font-size:11px;letter-spacing:.28em;text-transform:uppercase;padding:16px 26px;border:1px solid var(--oxblood);background:var(--oxblood);color:var(--ivory);text-decoration:none;transition:background .2s,color .2s}
 .btn:hover{background:transparent;color:var(--oxblood)}
 .btn.ghost{background:transparent;color:var(--oxblood)}
@@ -203,7 +203,7 @@ header.site .logo{width:190px}
 .finish:hover{background:#FBF7EF}
 .finish img{width:100%;aspect-ratio:3/2;object-fit:contain;transition:transform .4s}
 .finish:hover img{transform:translateY(-6px)}
-.finish h3{font-size:24px;font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:12px}
+.finish h3{font-size:24px;font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:12px}
 .finish h3 .sw{flex:none}
 .finish p{margin:0;font-style:italic;font-size:20px;color:var(--muted)}
 .finish .label-sm{margin-top:auto}
@@ -225,7 +225,7 @@ header.site .logo{width:190px}
 /* 08 limited issues */
 .limited{background:var(--aqua);color:var(--ink);overflow:hidden}
 .limited .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:96px}
-.limited .num{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(160px,26vw,380px);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--ivory);letter-spacing:-.04em}
+.limited .num{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(160px,26vw,380px);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--ivory);letter-spacing:-.04em}
 .limited h2{font-size:clamp(44px,5.4vw,80px);color:var(--oxblood);margin:16px 0 18px}
 .limited p{margin:0 0 26px;font-size:21px;max-width:36ch}
 .limited .issue{display:inline-block;font-family:var(--label);font-size:11px;letter-spacing:.24em;text-transform:uppercase;background:var(--ivory);padding:10px 14px;margin-bottom:26px}
@@ -316,7 +316,7 @@ footer .label-sm{color:rgba(243,237,225,.6)}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="pennant" viewBox="0 0 120 70">
     <path d="M0 0 L120 35 L0 70 Z" fill="#7D1B20"/>
-    <text x="14" y="45" font-family="Cormorant Garamond,Georgia,serif" font-style="italic" font-weight="500" font-size="30" fill="#F3EDE1">R<tspan dx="-4" dy="6">S</tspan></text>
+    <text x="14" y="45" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-weight="400" font-size="30" fill="#F3EDE1">R<tspan dx="-4" dy="6">S</tspan></text>
   </symbol>
 </svg>
 

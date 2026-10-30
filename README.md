@@ -46,7 +46,7 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 - Prices are proposed retail ranges, not final MSRP. Until per-variant pricing is set, the page charges the low end for Heritage and the high end for the all-leather colorways.
 - Dimensions and product copy are placeholders.
 - Colorways without a photo yet show the Heritage photo with a "Photo to come" tag.
-- Cormorant Garamond stands in for Canela, which isn't available as a free web font.
+- Headlines and body text are set in Instrument Serif (chosen in review), with Space Grotesk for labels.
 - The Duffel and Portofino use studio photography. The Racer, Riviera and Regatta still use crops from the brand boards.
 - Checkout, journal stories, Limited Issues and Our World aren't connected yet; their buttons show a short note.
 - The hero is a placeholder layout built from the existing photography. It should be replaced by the campaign shoot (speedboat, terrace or convertible) when that exists.
