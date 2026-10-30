@@ -16,11 +16,20 @@ Every bag comes in four permanent colorways: **Heritage** (ivory canvas and cogn
 
 ## What's on the page
 
-- Product cards with the four permanent colorways
-- A feature for the Portofino in Heritage
-- Studio cutout photos (`img/*-studio-*.webp`) for the Duffel and Portofino
-- A quick view for each product, with photos, colorway picker and specs
-- A bag that keeps items in the browser's local storage
+The homepage follows the V1 editorial copy, in this order:
+
+1. Announcement bar and navigation
+2. Hero: "Out of office. In our element." on a sun-yellow cover
+3. The Permanent Collection: an editorial grid with the Monaco and Portofino in the largest slots and a full-width Regatta card
+4. "The art of being off duty" manifesto
+5. The Details: leather, hardware and close-ups
+6. The four colorways, shown on the Portofino
+7. The Journal: three proposed stories
+8. Limited Issues: the Rally in Pool Aqua, shown as a concept
+9. Correspondence: the email sign-up
+10. Footer
+
+Each product opens a quick view with colorways, price and specs. The bag keeps items in the browser's local storage and uses the brand's microcopy ("A fine choice", "Until next time").
 
 ## Running it
 
@@ -39,4 +48,5 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 - Colorways without a photo yet show the Heritage photo with a "Photo to come" tag.
 - Cormorant Garamond stands in for Canela, which isn't available as a free web font.
 - The Duffel and Portofino use studio photography. The Racer, Riviera and Regatta still use crops from the brand boards.
-- Checkout isn't connected yet.
+- Checkout, journal stories, Limited Issues and Our World aren't connected yet; their buttons show a short note.
+- The hero is a placeholder layout built from the existing photography. It should be replaced by the campaign shoot (speedboat, terrace or convertible) when that exists.
