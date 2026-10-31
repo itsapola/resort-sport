@@ -147,7 +147,8 @@ header.site .logo{width:190px}
 .card.riviera{grid-column:6/13}
 .card .shot{position:relative;overflow:hidden;border:0;padding:0;width:100%;background:var(--panel);display:block}
 .card.portofino .shot{aspect-ratio:7/6;background:var(--aqua-pale)}
-.card.rally .shot{aspect-ratio:5/6}
+.card.rally .shot{aspect-ratio:5/6;background:var(--panel)}
+.card.rally .shot img.cut,.card.rally .shot img.alt{padding:7%}
 .card.monaco .shot{aspect-ratio:5/4}
 .card.riviera .shot{aspect-ratio:7/4}
 .card .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform .7s}
@@ -645,8 +646,9 @@ const PRODUCTS = [
    studio:{heritage:"portofino-studio-heritage.webp", avorio:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", nero:"portofino-studio-black.webp"}},
   {id:"racer", slot:"rally", code:"RS-02", name:"The Rally", tag:"The belt bag", role:"Entry", say:"Hands free. Plans optional.", range:[275,350], status:"launch", def:"heritage",
    desc:"A low, curved belt bag with a diagonal panel and single-zip access. Wear it at the waist or across the body.",
-   build:[["Carry","Adjustable waist or shoulder strap"],["Closure","Single zip"]],
-   details:["Zip pull","Edge finish","Strap buckle"]},
+   build:[["Carry","Adjustable waist or shoulder strap; side-release buckle"],["Closure","Single zip"]],
+   details:["Zip pull","Edge finish","Strap buckle"], cover:"studio", gallery:true,
+   studio:{heritage:"racer-studio-heritage.webp", cognac:"racer-studio-cognac.webp", avorio:"racer-studio-avorio.webp", nero:"racer-studio-nero.webp"}},
   {id:"duffel", slot:"monaco", code:"RS-01", name:"The Monaco", tag:"The travel duffel", say:"For leaving well.", range:[695,895], status:"later", def:"heritage",
    desc:"An aerodynamic east–west duffel with vertical leather panels, two handles and a removable strap.",
    build:[["Carry","Two handles; removable strap"]],
