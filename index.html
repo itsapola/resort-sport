@@ -219,15 +219,15 @@ header.site .logo{width:190px}
 .details .intro .last{color:var(--red);font-size:26px;margin-top:20px}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .pair figure{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px;background:var(--panel)}
-.pair img{width:100%;height:100%;aspect-ratio:1;object-fit:cover}
+.pair img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;align-self:start}
 .pair figcaption{grid-column:1/-1;padding:24px 26px 28px;display:grid;gap:8px}
 .pair h3{font-size:clamp(34px,3.4vw,46px)}
 .pair p{margin:0;color:var(--muted);max-width:44ch}
-.closeups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:20px}
+.closeups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
 .closeups figure{margin:0}
 .closeups img{width:100%;aspect-ratio:1;object-fit:cover}
 .closeups figcaption{margin-top:10px}
-@media (max-width:900px){.details .intro{grid-template-columns:1fr;gap:24px}.pair{grid-template-columns:1fr}.closeups{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.details .intro{grid-template-columns:1fr;gap:24px}.pair{grid-template-columns:1fr}.closeups{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 
 /* 06 colorways */
 .colors{background:var(--panel)}
@@ -459,21 +459,20 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
       </div>
       <div class="pair">
         <figure>
-          <img src="img/el-emboss.jpg" alt="Tonal RS monogram debossed into cognac leather">
-          <img src="img/regatta-detail1.jpg" alt="Tonal stitching on a cognac leather strap">
+          <img src="img/detail-emboss.webp" alt="Tonal RS monogram debossed into cognac leather">
+          <img src="img/detail-edges.webp" alt="Cognac leather piping along a natural canvas edge">
           <figcaption><div class="label-sm">Leather</div><h3>A softer approach.</h3><p>Supple, fine-grain leathers, selected for their feel and refined finish. Tonal stitching throughout.</p></figcaption>
         </figure>
         <figure>
-          <img src="img/el-hardware.jpg" alt="Brushed silver-tone buckle engraved with RS">
-          <img src="img/portofino-detail0.jpg" alt="The Portofino's polished arch handle meeting its leather collar">
+          <img src="img/detail-clasp.webp" alt="Silver-tone swivel clasp engraved with RS">
+          <img src="img/detail-handle.webp" alt="Leather handle looped through a silver-tone ring">
           <figcaption><div class="label-sm">Hardware</div><h3>Beautifully engineered.</h3><p>Considered metalwork, understated branding, and hardware worth noticing. Brushed silver-tone throughout, and a polished aluminum arch on the Portofino.</p></figcaption>
         </figure>
       </div>
       <div class="closeups">
-        <figure><img src="img/duffel-detail1.jpg" alt="RS-engraved zip pull"><figcaption class="label-sm">The zip pull</figcaption></figure>
-        <figure><img src="img/riviera-detail0.jpg" alt="Interior pocket against the Sand lining"><figcaption class="label-sm">The Sand lining, in every bag</figcaption></figure>
-        <figure><img src="img/riviera-detail1.jpg" alt="Leather edge against natural canvas"><figcaption class="label-sm">The edges</figcaption></figure>
-        <figure><img src="img/el-label.jpg" alt="Woven interior label: Resort Sport Ltd., Official equipment for time off"><figcaption class="label-sm">The label</figcaption></figure>
+        <figure><img src="img/detail-zips.webp" alt="Two leather zip pulls on a silver-tone zip"><figcaption class="label-sm">The zip pulls</figcaption></figure>
+        <figure><img src="img/detail-tab.webp" alt="A riveted leather tab below the zip"><figcaption class="label-sm">The tab</figcaption></figure>
+        <figure><img src="img/detail-label.webp" alt="Woven label: Resort Sport Ltd., Official equipment for time off"><figcaption class="label-sm">The label</figcaption></figure>
       </div>
     </div>
   </section>
