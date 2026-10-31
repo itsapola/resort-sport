@@ -177,6 +177,8 @@ header.site .logo{width:190px}
 .regatta{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr);gap:20px;background:var(--panel);margin-top:20px}
 .regatta .pic{position:relative;min-height:360px}
 .regatta .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.regatta .pic.tint{background:var(--aqua-pale)}
+.regatta .pic img.cut{object-fit:contain;padding:10%}
 .regatta .txt{padding:44px 44px 40px;display:flex;flex-direction:column;gap:16px;justify-content:center}
 .regatta h3{font-size:clamp(46px,5vw,72px)}
 .regatta .tagline{font-size:28px;color:var(--red);margin:0}
@@ -656,9 +658,10 @@ const PRODUCTS = [
    details:["Pocket","Edges","Monogram"]},
   {id:"regatta", slot:"regatta", code:"RS-05", name:"The Regatta", tag:"The backpack", say:"Take the scenic route. Bring everything.", range:[525,725], status:"development", def:"heritage",
    blurb:"Sculptural form. Everyday utility. Room for the laptop and whatever comes after.",
-   desc:"A sculptural zip-top daypack with an asymmetric front panel, a concealed front pocket and separate access to a 16-inch laptop sleeve.",
-   build:[["Carry","Padded leather straps"],["Laptop","Separate 16-inch sleeve"]],
-   details:["Hardware","Strap","Monogram"]}
+   desc:"A sculptural zip-top daypack with an asymmetric front panel, a diagonal zip pocket and separate access to a 16-inch laptop sleeve.",
+   build:[["Carry","Padded leather straps; top handle"],["Closure","Two-way top zip; diagonal front zip; side zip pockets"],["Laptop","Separate 16-inch sleeve"]],
+   details:["Hardware","Strap","Monogram"], cover:"studio", gallery:true,
+   studio:{heritage:"regatta-studio-heritage.webp", cognac:"regatta-studio-cognac.webp", avorio:"regatta-studio-avorio.webp", nero:"regatta-studio-nero.webp"}}
 ];
 PRODUCTS.find(p => p.id === "portofino").cover = "studio";
 const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
@@ -697,7 +700,7 @@ $("#grid").innerHTML = PRODUCTS.filter(p => p.slot !== "regatta").map(p => `
   </article>`).join("") + (() => { const p = byId.regatta; return `
   <article class="regatta card" data-id="regatta">
     <div class="pic">${shot(p)}</div>
-    <div class="pic"><img src="${img('regatta','worn')}" alt="A backpack worn over one shoulder by the pool"></div>
+    <div class="pic tint"><img class="cut" src="img/regatta-studio-cognac.webp" alt="The Regatta in Cognac leather"></div>
     <div class="txt">
       <div class="label-sm">${p.code} / The backpack / ${STATUS[p.status]}</div>
       <h3>${p.name}</h3>
@@ -821,7 +824,7 @@ function setColor(c) {
   $("#qvAdd").textContent = ok ? "Add to bag" : "Notify me";
   $("#qvCw").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   $("#qvNote").hidden = !!thumbOf(p, c);
-  if (thumbOf(p, c) && (p.studio?.[c] || c !== "heritage")) { setStage(thumbOf(p, c), true); markThumb(-1); }
+  if (thumbOf(p, c) && (p.studio?.[c] || c !== "heritage")) { setStage(thumbOf(p, c), true); markThumb(p.gallery ? PERMANENT.indexOf(c) : -1); }
   else { setStage(img(p.id, "hero")); markThumb(0); }
   $("#qvSpecs").querySelector('[data-k="exterior"]').textContent = COLORS[c].note;
 }
@@ -838,9 +841,14 @@ function openQV(id, color) {
     ${p.fits ? `<div><h4>What fits</h4><p>${p.fits}</p></div>` : ""}
     <div><h4>Materials &amp; build</h4><dl class="spec"><dt>Exterior</dt><dd data-k="exterior"></dd>${p.build.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}<dt>Hardware</dt><dd>Brushed silver-tone</dd><dt>Lining</dt><dd>Sand, in every bag</dd><dt>Branding</dt><dd>Tonal RS deboss only</dd></dl></div>
     <div><h4>Care, delivery &amp; returns</h4><dl class="spec"><dt>Care</dt><dd>Wipe with a soft, dry cloth. Store in the dust bag, away from direct sun.</dd><dt>Delivery</dt><dd>Policy published at launch</dd><dt>Returns</dt><dd>30 days from delivery. Return it unused, in its original condition, with the dust bag.</dd></dl></div>`;
-  const shots = [["hero","Poolside"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]];
-  $("#qvThumbs").innerHTML = shots.map(([k, l], i) => `<button data-k="${k}" aria-label="${l}" aria-current="${i===0}"><img src="${img(p.id,k)}" alt=""></button>`).join("");
-  $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => { setStage(img(p.id, b.dataset.k)); markThumb(i); $("#qvNote").hidden = true; }));
+  /* a bag with a full studio set shows its colorways; the others show the board's poolside and detail photos */
+  const shots = p.gallery ? PERMANENT.map(c => [thumbOf(p, c), COLORS[c].name, true])
+    : [["hero","Poolside"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]].map(([k, l]) => [img(p.id, k), l, false]);
+  $("#qvThumbs").innerHTML = shots.map(([src, l, cut], i) => `<button data-src="${src}" data-cut="${cut ? 1 : ""}" aria-label="${l}" aria-current="false"><img src="${src}" alt=""${cut ? ' style="object-fit:contain;background:var(--ivory)"' : ""}></button>`).join("");
+  $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => {
+    if (p.gallery) return setColor(PERMANENT[i]);  /* each thumbnail is a colorway */
+    setStage(b.dataset.src, !!b.dataset.cut); markThumb(i); $("#qvNote").hidden = true;
+  }));
   $("#qvStage").alt = p.name;
   $("#qvCw").innerHTML = PERMANENT.map(c => `<button data-c="${c}" aria-pressed="false">${thumbOf(p,c) ? `<img src="${thumbOf(p,c)}" alt="">` : `<span class="chip-c">Photo to come</span>`}<span class="label-sm">${COLORS[c].name}</span>${p.status === "launch" ? `<span class="avail">${available(p, c) ? "Available" : "Later"}</span>` : ""}</button>`).join("");
   $("#qvCw").querySelectorAll("button").forEach(b => b.addEventListener("click", () => setColor(b.dataset.c)));
