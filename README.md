@@ -58,6 +58,10 @@ Microcopy carries the voice in small moments: "A fine choice" when something goe
   - Cognac, Avorio and Nero appear only as product colorway swatches
   - Panel tints are mixed from the palette, so there are no off-system colors
 
+## Logo files
+
+`img/brand/` holds the master logo set as transparent PNGs, rebuilt in exact brand colors: the RS monogram, the horizontal wordmark and the stacked wordmark, each in Cabana Red, Ivory, Deep Navy and black (`rs-<mark>-<color>.png`). The site uses the horizontal wordmark: Cabana Red in the header (`img/logo.png`) and Ivory in the footer (`img/logo-ivory.png`).
+
 ## Running it
 
 The page is static HTML with no build step. Open `index.html` in a browser, or serve the folder:
