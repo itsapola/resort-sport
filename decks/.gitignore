@@ -1,0 +1,5 @@
+node_modules/
+render/
+*.pdf
+package-lock.json
+fonts/
