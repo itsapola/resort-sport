@@ -28,7 +28,7 @@ Pricing rule: Heritage sits at the low end of each range and the all-leather col
 ## What's on the page
 
 1. Announcement bar and navigation, with a mobile menu
-2. Hero: "Out of office. In our element." on Pool Aqua, with the Portofino in Cognac
+2. Hero: "Out of office. In our element." on Pool Aqua, with the Portofino in Cognac on a yacht deck as the cover photo
 3. Collection 01: the Portofino and the Rally first and largest; the Monaco and Riviera arriving later; the Regatta in development
 4. Campaign band: "Luxury doesn't have to be serious to be considered." (the creative provocation)
 5. Manifesto: "The art of being off duty."
@@ -73,6 +73,6 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 - Prices are proposed retail ranges, not final MSRP.
 - Returns: 30 days from delivery, unused and in original condition with the dust bag. Shown in the product view and the bag. The delivery policy is not set yet.
 - The Portofino stays at $695 by decision, about $155 above the Polène Numéro Neuf Mini; the pricing story needs to justify the gap.
-- Photography: all five bags have studio cutouts in all four colorways. Lifestyle and detail photos still come from the early brand boards, and some of them show earlier designs that Deck 01 rejected (the barrel duffel, the conventional tote, the flap backpack).
+- Photography: all five bags have studio cutouts in all four colorways. The hero (Portofino on a yacht deck) and Journal 002 (Portofino at a Paris café) use new editorial photos. Other lifestyle and detail photos still come from the early brand boards, and some of them show earlier designs that Deck 01 rejected (the barrel duffel, the conventional tote, the flap backpack).
 - Colorways without a photo show a "Photo to come" tag.
 - Checkout, journal stories, Limited Issues and Our World aren't connected; their buttons show a short note.
