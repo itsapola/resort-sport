@@ -8,7 +8,7 @@
 
 **Express delivery**, $25. Arrives in 1–2 business days.
 
-**When it ships.** Orders placed by 1 pm ET on a business day leave the same day. Everything else leaves the next business day. You'll get a tracking link as soon as it does.
+**When it ships.** Orders placed by 1 pm PT on a business day leave the same day. Everything else leaves the next business day. You'll get a tracking link as soon as it does.
 
 **How it arrives.** In a Resort Sport Ltd. box, with the bag in its dust bag and wrapped in tissue. No plastic filler.
 
