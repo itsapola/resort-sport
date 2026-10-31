@@ -73,6 +73,6 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 - Prices are proposed retail ranges, not final MSRP.
 - Returns: 30 days from delivery, unused and in original condition with the dust bag. Shown in the product view and the bag. The delivery policy is not set yet.
 - The Portofino stays at $695 by decision, about $155 above the Polène Numéro Neuf Mini; the pricing story needs to justify the gap.
-- Photography: the Portofino, Rally and Regatta have studio cutouts in all four colorways; the Monaco has Heritage only. The Riviera still uses crops from the early brand boards, and some board photos show earlier designs that Deck 01 rejected (the barrel duffel, the conventional tote, the flap backpack).
+- Photography: the Portofino, Rally, Riviera and Regatta have studio cutouts in all four colorways; the Monaco has Heritage only. Lifestyle and detail photos still come from the early brand boards, and some of them show earlier designs that Deck 01 rejected (the barrel duffel, the conventional tote, the flap backpack).
 - Colorways without a photo show a "Photo to come" tag.
 - Checkout, journal stories, Limited Issues and Our World aren't connected; their buttons show a short note.

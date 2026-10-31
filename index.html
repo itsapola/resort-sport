@@ -150,7 +150,8 @@ header.site .logo{width:190px}
 .card.rally .shot{aspect-ratio:5/6;background:var(--panel)}
 .card.rally .shot img.cut,.card.rally .shot img.alt{padding:7%}
 .card.monaco .shot{aspect-ratio:5/4}
-.card.riviera .shot{aspect-ratio:7/4}
+.card.riviera .shot{aspect-ratio:7/4;background:var(--aqua-pale)}
+.card.riviera .shot img.cut,.card.riviera .shot img.alt{padding:6% 8%}
 .card .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform .7s}
 .card .shot img.cut{object-fit:contain;padding:9%}
 .card .shot img.alt{object-fit:contain;padding:9%;opacity:0;background:inherit}
@@ -656,8 +657,9 @@ const PRODUCTS = [
    studio:{heritage:"duffel-studio-ivory.webp"}},
   {id:"riviera", slot:"riviera", code:"RS-03", name:"The Riviera", tag:"The oversized carryall", say:"More room for less agenda.", range:[595,795], status:"later", def:"heritage",
    desc:"An extra-wide, winged carryall with a dipped center and flowing leather corner panels and handles.",
-   build:[["Carry","Shoulder handles"]],
-   details:["Pocket","Edges","Monogram"]},
+   build:[["Carry","Two shoulder handles, riveted"],["Tag","Leather RS hang tag"]],
+   details:["Pocket","Edges","Monogram"], cover:"studio", gallery:true,
+   studio:{heritage:"riviera-studio-heritage.webp", cognac:"riviera-studio-cognac.webp", avorio:"riviera-studio-avorio.webp", nero:"riviera-studio-nero.webp"}},
   {id:"regatta", slot:"regatta", code:"RS-05", name:"The Regatta", tag:"The backpack", say:"Take the scenic route. Bring everything.", range:[525,725], status:"development", def:"heritage",
    blurb:"Sculptural form. Everyday utility. Room for the laptop and whatever comes after.",
    desc:"A sculptural zip-top daypack with an asymmetric front panel, a diagonal zip pocket and separate access to a 16-inch laptop sleeve.",
