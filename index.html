@@ -317,7 +317,7 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
 .qv .stage img{width:100%;height:100%;object-fit:cover}
 .qv .stage img.contain{object-fit:contain;padding:10%}
 .stage-note{position:absolute;left:12px;bottom:12px;background:var(--ivory);color:var(--navy);padding:6px 10px}
-.qv .thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.qv .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
 .qv .thumbs button{padding:0;border:1px solid transparent;background:none;aspect-ratio:1}
 .qv .thumbs button[aria-current="true"]{border-color:var(--navy)}
 .qv .thumbs img{width:100%;height:100%;object-fit:cover}
@@ -436,8 +436,8 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
         <a class="link" href="#world" data-soon="Our World is still unpacking. Back shortly.">Get to know us</a>
       </div>
       <figure>
-        <img src="img/portofino-worn.jpg" alt="A woman by the pool carrying The Portofino on her shoulder">
-        <figcaption class="label-sm">The Portofino, at the pool, at no particular time.</figcaption>
+        <img src="img/portofino-carried.webp" alt="The Portofino in Nero carried by its aluminum arch handle on a terrace above a Mediterranean harbor">
+        <figcaption class="label-sm">The Portofino in Nero, on the way to lunch. No particular time.</figcaption>
       </figure>
     </div>
   </section>
@@ -639,7 +639,8 @@ const PRODUCTS = [
    size:[["Size","24 × 17 × 9.5 cm (W × H × D)"],["Capacity","2.5–3.0 L"],["Weight","700 g or less"]],
    fits:"Phone up to about 6.7 in, a compact wallet, sunglasses in a slim case, keys, lipstick. Not made for a tablet, a large water bottle or over-ear headphones.",
    build:[["Carry","Arch handle; detachable strap"],["Closure","Top zip"],["Handle","Polished aluminum arch, under prototype testing"]],
-   details:["Arch handle","Zip pull","Monogram"],
+   details:["Arch handle","Zip pull","Monogram"], gallery:true,
+   extras:[["img/portofino-carried.webp","Carried, in Nero"],["img/hero-deck.webp","On deck, in Cognac"],["img/journal-cafe.webp","At the café, in Avorio"]],
    studio:{heritage:"portofino-studio-heritage.webp", avorio:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", nero:"portofino-studio-black.webp"}},
   {id:"racer", slot:"rally", code:"RS-02", name:"The Rally", tag:"The belt bag", role:"Entry", say:"Hands free. Plans optional.", range:[275,350], status:"launch", def:"heritage",
    desc:"A low, curved belt bag with a diagonal panel and single-zip access. Wear it at the waist or across the body.",
@@ -842,11 +843,11 @@ function openQV(id, color) {
     <div><h4>Materials &amp; build</h4><dl class="spec"><dt>Exterior</dt><dd data-k="exterior"></dd>${p.build.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}<dt>Hardware</dt><dd>Brushed silver-tone</dd><dt>Lining</dt><dd>Sand, in every bag</dd><dt>Branding</dt><dd>Tonal RS deboss only</dd></dl></div>
     <div><h4>Care, delivery &amp; returns</h4><dl class="spec"><dt>Care</dt><dd>Wipe with a soft, dry cloth. Store in the dust bag, away from direct sun.</dd><dt>Delivery</dt><dd>Policy published at launch</dd><dt>Returns</dt><dd>30 days from delivery. Return it unused, in its original condition, with the dust bag.</dd></dl></div>`;
   /* a bag with a full studio set shows its colorways; the others show the board's poolside and detail photos */
-  const shots = p.gallery ? PERMANENT.map(c => [thumbOf(p, c), COLORS[c].name, true])
+  const shots = p.gallery ? [...PERMANENT.map(c => [thumbOf(p, c), COLORS[c].name, true]), ...(p.extras || []).map(([src, l]) => [src, l, false])]
     : [["hero","Poolside"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]].map(([k, l]) => [img(p.id, k), l, false]);
   $("#qvThumbs").innerHTML = shots.map(([src, l, cut], i) => `<button data-src="${src}" data-cut="${cut ? 1 : ""}" aria-label="${l}" aria-current="false"><img src="${src}" alt=""${cut ? ' style="object-fit:contain;background:var(--ivory)"' : ""}></button>`).join("");
   $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => {
-    if (p.gallery) return setColor(PERMANENT[i]);  /* each thumbnail is a colorway */
+    if (p.gallery && i < PERMANENT.length) return setColor(PERMANENT[i]);  /* the first four thumbnails are colorways; any after are lifestyle photos */
     setStage(b.dataset.src, !!b.dataset.cut); markThumb(i); $("#qvNote").hidden = true;
   }));
   $("#qvStage").alt = p.name;
