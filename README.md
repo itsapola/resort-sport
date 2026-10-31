@@ -35,7 +35,7 @@ Pricing rule: Heritage sits at the low end of each range and the all-leather col
 6. The Details: design worth recognizing
 7. The four permanent colorways, shown on the Portofino
 8. The Journal: three proposed stories
-9. Limited Issues: Issue 001, the Rally in Curaçao, after launch
+9. Limited Issues: Issue 001, the Rally in Curaçao (Pool Aqua leather), shown over an outlined "001", after launch
 10. The Time Off Club: the correspondence sign-up
 11. Footer
 
