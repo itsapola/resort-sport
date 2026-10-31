@@ -75,7 +75,8 @@ To host it on GitHub Pages, turn on Pages in the repo settings and choose the `m
 ## Notes
 
 - Prices are proposed retail ranges, not final MSRP.
-- Returns: 30 days from delivery, unused and in original condition with the dust bag. Shown in the product view and the bag. The delivery policy is not set yet.
+- Returns: 30 days from delivery, unused and in original condition with the dust bag; return shipping is free. Shown in the product view and the bag. The delivery policy is not set yet.
+- Delivery: complimentary standard delivery in the US (3–5 business days), express for $25 (1–2 business days), signature required. Orders ship within one business day, in the box, dust bag and tissue. US only at launch. Full policy text in `POLICIES.md`.
 - The Portofino stays at $695 by decision, about $155 above the Polène Numéro Neuf Mini; the pricing story needs to justify the gap.
 - Photography: all five bags have studio cutouts in all four colorways. The hero (Portofino on a yacht deck) and Journal 002 (Portofino at a Paris café) use new editorial photos; the manifesto and the Portofino product view use a new on-body photo of the Portofino in Nero. Journal 003 and the Rally product view use the Rally in Cognac on a scooter; Journal 001 uses the Rally in Heritage on a poolside lounger. The Monaco product view adds the Monaco in Heritage boarding a jet. The Details uses seven close-ups of the Monaco in Heritage and an interior shot of the Sand lining, which also appears in the Riviera product view. Other lifestyle and detail photos still come from the early brand boards, and some of them show earlier designs that Deck 01 rejected (the barrel duffel, the conventional tote, the flap backpack).
 - Colorways without a photo show a "Photo to come" tag.
