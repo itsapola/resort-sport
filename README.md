@@ -47,7 +47,7 @@ Microcopy carries the voice in small moments: "A fine choice" when something goe
 
 - Line hierarchy: platform "The art of being off duty."; tagline "Official equipment for time off."; campaign "Out of office. In our element."; creative provocation "Luxury doesn't have to be serious to be considered." Other lines are section copy.
 - Colorways: permanent colorways are named plainly; Limited Issues take cocktail names: Curaçao (Pool Aqua), Negroni (Bitter Orange), Limoncello (Butter Yellow) and Bijou (Racing Green).
-- Type (Deck 02): Instrument Serif for display, in sentence case with selective italic; Space Grotesk Regular for body and Medium for labels.
+- Type: Instrument Serif for display and body text, in sentence case with selective italic; Space Grotesk for labels, navigation, buttons, prices and specs.
 - Color roles (Deck 02; see the `:root` tokens in `index.html`):
   - Cabana Red #811E23: brand authority, signature headlines, logo, primary actions
   - Deep Navy #11293A: text, navigation, editorial structure
