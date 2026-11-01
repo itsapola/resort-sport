@@ -251,6 +251,16 @@ const swatchText = (s, x, y, w, name, hexv, role, dark) => {
     }
   }
 
+  // ================= 14b PORTOFINO VIEWS =================
+  s = slide("CONTENT", "Product", "Product design  /  RS-04", "The Portofino, from every side");
+  const views = [["45°", "portofino-angle.png", "The arch handle, leather collars and RS hang tag."], ["Side", "portofino-side.png", "A tapered profile; the strap clips to the side rings."],
+    ["Interior", "portofino-interior.png", "Sand lining, a zip pocket and a slip pocket."], ["Base", "portofino-base.png", "A stitched base panel on four silver-tone feet."]];
+  for (const [i, [t, f, d]] of views.entries()) {
+    const x = M + i * 3.03, w = 2.8; box(s, x, 1.95, w, 3.0, C.background2); await contain(s, f, x + 0.25, 2.2, w - 0.5, 2.5);
+    label(s, t, x, 5.15, w); body(s, d, x, 5.45, w, 0.9, { fontSize: 15 });
+  }
+  label(s, "Shown in Cognac  ·  Product photography standard: centered, faithful materials, front, 45°, side, interior", M, 6.55, 11.5, C.accent6, { fontSize: 9 });
+
   // ================= 15 STANDARDS =================
   s = slide("PANEL", "Product", "Product standards", "Non-negotiable construction rules");
   const std = [["Product mark", "RS only. Tonal blind debossing or discreet RS metal engraving.", "emboss.jpg"], ["Metal", "Brushed silver-tone hardware. Portofino: polished 6061-T6 aluminum arch, under prototype testing.", "handle.jpg"],
