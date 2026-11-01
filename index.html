@@ -645,7 +645,7 @@ const PRODUCTS = [
    fits:"Phone up to about 6.7 in, a compact wallet, sunglasses in a slim case, keys, lipstick. Not made for a tablet, a large water bottle or over-ear headphones.",
    build:[["Carry","Arch handle; detachable strap"],["Closure","Top zip"],["Handle","Polished aluminum arch, under prototype testing"]],
    details:["Arch handle","Zip pull","Monogram"], gallery:true,
-   extras:[["img/portofino-carried.webp","Carried, in Nero"],["img/hero-deck.webp","On deck, in Cognac"],["img/journal-cafe.webp","At the café, in Avorio"]],
+   extras:[["img/portofino-angle.webp","45°, in Cognac",true],["img/portofino-side.webp","Side, in Cognac",true],["img/portofino-interior.webp","Inside: Sand lining and zip pocket",true],["img/portofino-base.webp","Base: four silver-tone feet",true],["img/portofino-carried.webp","Carried, in Nero"],["img/hero-deck.webp","On deck, in Cognac"],["img/journal-cafe.webp","At the café, in Avorio"]],
    studio:{heritage:"portofino-studio-heritage.webp", avorio:"portofino-studio-ivory.webp", cognac:"portofino-studio-cognac.webp", nero:"portofino-studio-black.webp"}},
   {id:"racer", slot:"rally", code:"RS-02", name:"The Rally", tag:"The belt bag", role:"Entry", say:"Hands free. Plans optional.", range:[275,350], status:"launch", def:"heritage",
    desc:"A low, curved belt bag with a diagonal panel and single-zip access. Wear it at the waist or across the body.",
@@ -851,7 +851,7 @@ function openQV(id, color) {
     <div><h4>Materials &amp; build</h4><dl class="spec"><dt>Exterior</dt><dd data-k="exterior"></dd>${p.build.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}<dt>Hardware</dt><dd>Brushed silver-tone</dd><dt>Lining</dt><dd>Sand, in every bag</dd><dt>Branding</dt><dd>Tonal RS deboss only</dd></dl></div>
     <div><h4>Care, delivery &amp; returns</h4><dl class="spec"><dt>Care</dt><dd>Wipe with a soft, dry cloth. Store in the dust bag, away from direct sun.</dd><dt>Delivery</dt><dd>Complimentary in the US, 3–5 business days. Express, 1–2 business days, $25. Signature required.</dd><dt>Returns</dt><dd>30 days from delivery. Return it unused, in its original condition, with the dust bag. Return shipping is on us.</dd></dl></div>`;
   /* a bag with a full studio set shows its colorways; the others show the board's poolside and detail photos */
-  const shots = p.gallery ? [...PERMANENT.map(c => [thumbOf(p, c), COLORS[c].name, true]), ...(p.extras || []).map(([src, l]) => [src, l, false])]
+  const shots = p.gallery ? [...PERMANENT.map(c => [thumbOf(p, c), COLORS[c].name, true]), ...(p.extras || []).map(([src, l, cut]) => [src, l, !!cut])]
     : [["hero","Poolside"],["worn","Worn"],["detail0",p.details[0]],["detail1",p.details[1]],["detail2",p.details[2]]].map(([k, l]) => [img(p.id, k), l, false]);
   $("#qvThumbs").innerHTML = shots.map(([src, l, cut], i) => `<button data-src="${src}" data-cut="${cut ? 1 : ""}" aria-label="${l}" aria-current="false"><img src="${src}" alt=""${cut ? ' style="object-fit:contain;background:var(--ivory)"' : ""}></button>`).join("");
   $("#qvThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => {
