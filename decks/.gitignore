@@ -3,3 +3,4 @@ render/
 *.pdf
 package-lock.json
 fonts/
+!pdf/*.pdf
