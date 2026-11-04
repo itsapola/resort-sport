@@ -310,6 +310,30 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
 .drawer-foot .row{display:flex;justify-content:space-between;align-items:baseline}
 .drawer-foot .btn{justify-content:center}
 .note{font-family:var(--label);font-size:12px;color:var(--muted);letter-spacing:.02em;margin:0;min-height:1em}
+/* journal reader */
+.reader{position:fixed;z-index:90;top:0;right:0;bottom:0;width:min(880px,100%);background:var(--ivory);overflow:auto;transform:translateX(24px);opacity:0;pointer-events:none;transition:.3s;overscroll-behavior:contain}
+.reader.on{transform:none;opacity:1;pointer-events:auto}
+.reader .bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 28px;background:var(--ivory);border-bottom:1px solid var(--line)}
+.reader .hero-img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.reader .col{max-width:640px;margin:0 auto;padding:44px 28px 64px}
+.reader h2{font-size:clamp(42px,5.4vw,64px);color:var(--red);margin:14px 0 16px;line-height:1}
+.reader .dek{font-size:24px;line-height:1.35;font-style:italic;margin:0 0 20px}
+.reader .meta{display:flex;gap:18px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:30px}
+.reader .body p{font-size:20px;line-height:1.6;margin:0 0 20px}
+.reader .body h3{font-size:30px;margin:40px 0 14px}
+.reader .body blockquote{margin:36px 0;padding:22px 0;border-top:1px solid var(--red);border-bottom:1px solid var(--red);font-family:var(--display);font-style:italic;font-size:clamp(28px,3.4vw,36px);line-height:1.15;color:var(--red);text-align:center}
+.reader .kit{margin-top:44px;background:var(--panel);padding:24px}
+.reader .kit .label-sm{display:block;margin-bottom:14px}
+.reader .kit button{display:grid;grid-template-columns:72px 1fr auto;gap:16px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:14px 0;color:inherit;font:inherit;cursor:pointer}
+.reader .kit button:first-of-type{border-top:0}
+.reader .kit img{width:72px;aspect-ratio:1;object-fit:contain;background:var(--ivory);padding:6px}
+.reader .kit b{display:block;font-family:var(--display);font-weight:400;font-size:24px;line-height:1.1}
+.reader .kit small{font-family:var(--label);font-size:12px;color:var(--muted);letter-spacing:.02em}
+.reader .kit .go{font-family:var(--label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:underline}
+.reader .next{margin-top:44px;border-top:1px solid var(--line);padding-top:24px}
+.reader .next a{display:block;color:var(--red);text-decoration:none;font-family:var(--display);font-size:32px;line-height:1.1;margin-top:8px}
+.reader .next a:hover em{text-decoration:underline}
+@media (max-width:620px){.reader .bar{padding:14px 16px}.reader .col{padding:32px 16px 48px}.reader .body p{font-size:19px}.reader .kit{padding:18px 16px}.reader .kit button{grid-template-columns:60px 1fr}.reader .kit img{width:60px}.reader .kit .go{display:none}}
 .bye-msg{font-size:32px;color:var(--red);text-align:center;margin:auto 0}
 
 .qv{position:fixed;z-index:90;left:50%;top:50%;width:min(1100px,calc(100% - 48px));max-height:calc(100% - 48px);overflow:auto;background:var(--ivory);transform:translate(-50%,-48%);opacity:0;pointer-events:none;transition:.3s;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
@@ -506,21 +530,21 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
           <div class="label-sm">Field Notes / 001</div>
           <h3>A Strong Case for the Long Weekend</h3>
           <p>The pleasures of leaving on Thursday and returning when absolutely necessary.</p>
-          <button class="link" data-soon="This story is still on holiday. Back soon.">Read the story</button>
+          <a class="link" href="#long-weekend" data-story="long-weekend">Read the story</a>
         </article>
         <article class="story">
           <img src="img/journal-cafe.webp" alt="A woman with an espresso at a Paris café table, the Portofino in Avorio beside a croissant">
           <div class="label-sm">Leisure Studies / 002</div>
           <h3>The Lost Art of Doing Absolutely Nothing</h3>
           <p>An appreciation of unstructured afternoons, uninterrupted conversations, and excellent places to sit.</p>
-          <button class="link" data-soon="This story is still on holiday. Back soon.">Read the story</button>
+          <a class="link" href="#doing-nothing" data-story="doing-nothing">Read the story</a>
         </article>
         <article class="story">
           <img src="img/rally-worn.webp" alt="A woman on a cream scooter in a sunlit piazza, wearing the Rally in Cognac across her body">
           <div class="label-sm">Destinations / 003</div>
           <h3>The Scenic Route Is the Point</h3>
           <p>A celebration of detours, coastal roads, and the joy of arriving eventually.</p>
-          <button class="link" data-soon="This story is still on holiday. Back soon.">Read the story</button>
+          <a class="link" href="#scenic-route" data-story="scenic-route">Read the story</a>
         </article>
       </div>
     </div>
@@ -599,6 +623,20 @@ footer .label-sm{color:color-mix(in srgb,var(--ivory) 65%,transparent)}
     <button class="btn" id="checkout">Check out</button>
   </div>
 </aside>
+
+<article class="reader" id="story" role="dialog" aria-modal="true" aria-labelledby="stTitle" aria-hidden="true">
+  <div class="bar"><span class="label-sm">The Journal</span><button class="x" data-close>Close</button></div>
+  <img class="hero-img" id="stImg" alt="">
+  <div class="col">
+    <div class="label-sm" id="stKicker"></div>
+    <h2 id="stTitle"></h2>
+    <p class="dek" id="stDek"></p>
+    <div class="meta label-sm"><span>Resort Sport Ltd.</span><span id="stRead"></span></div>
+    <div class="body" id="stBody"></div>
+    <div class="kit" id="stKit"></div>
+    <div class="next" id="stNext"></div>
+  </div>
+</article>
 
 <div class="qv" id="qv" role="dialog" aria-modal="true" aria-labelledby="qvName" aria-hidden="true">
   <div class="gal">
@@ -803,9 +841,10 @@ function openLayer(el) {
   setTimeout(() => el.querySelector("[data-close]").focus(), 50);
 }
 function closeAll(keepFocus) {
-  ["#drawer", "#qv"].forEach(s => { $(s).classList.remove("on"); $(s).setAttribute("aria-hidden", "true"); });
+  ["#drawer", "#qv", "#story"].forEach(s => { $(s).classList.remove("on"); $(s).setAttribute("aria-hidden", "true"); });
   $("#scrim").classList.remove("on"); openEl = null;
   document.body.style.overflow = "";
+  if (STORIES[location.hash.slice(1)]) history.replaceState(null, "", location.pathname + location.search);
   if (!keepFocus && lastFocus) lastFocus.focus();
 }
 $("#bagOpen").addEventListener("click", () => { renderBag(); openLayer($("#drawer")); });
@@ -891,6 +930,93 @@ $("#signup").addEventListener("submit", e => {
 /* toast */
 let tt;
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2800); }
+
+/* 07 the Journal: three stories, opened in a reader */
+const STORIES = {
+  "long-weekend": {
+    kicker: "Field Notes / 001", title: "A Strong Case for the Long Weekend",
+    dek: "The pleasures of leaving on Thursday and returning when absolutely necessary.",
+    img: "img/rally-lounger.webp", alt: "The Rally in Heritage on a striped poolside lounger beside sunglasses, a straw hat and a cold drink",
+    read: "5 min read",
+    body: [
+      ["p", "There is a particular kind of quiet that settles over an office at three o'clock on a Thursday, once you have decided you will not be there on Friday. Emails become shorter. Decisions become easier. Somewhere in the back of your mind, a lounger is already being reserved."],
+      ["p", "The two-day weekend is a fine institution, but it was designed for errands. Saturday goes to the things you couldn't do during the week. Sunday goes to dreading Monday. What's left over is roughly an afternoon, and an afternoon is not a holiday. It is an intermission."],
+      ["h", "The case for Thursday"],
+      ["p", "Leave on Thursday evening and the arithmetic changes. You arrive while the restaurant is still serving. You wake on Friday somewhere that is not home, with nothing scheduled and a whole extra day before the weekend has even technically begun. By Saturday you have stopped checking the time. By Sunday you have forgotten your laptop password, which is the clearest sign a trip has worked."],
+      ["p", "Three nights is the point at which a place stops being a destination and starts being somewhere you live, briefly. You have a café. The waiter has a view about how you take your coffee. You know which side of the pool gets the morning sun. None of this happens in forty-eight hours."],
+      ["q", "Three nights is the point at which a place stops being a destination and starts being somewhere you live, briefly."],
+      ["h", "Packing for it"],
+      ["p", "The long weekend rewards restraint. Two outfits that work for dinner, one that works for nothing in particular, a swimsuit, a book you have been meaning to finish and a book you will actually finish. Leave the third pair of shoes. You will not wear them, and you will resent carrying them."],
+      ["p", "Keep the things you reach for most in one place, close at hand: passport, phone, sunglasses, a key that belongs to a room with a balcony. Everything else can live in the bag and stay there."],
+      ["h", "Returning when absolutely necessary"],
+      ["p", "The final rule is the hardest. Book the latest train, the last flight, the slowest route home. Ask about late checkout the moment you arrive, not the morning you leave. Spend the final hour exactly where you spent the best one."],
+      ["p", "You will return on Sunday night slightly tanned and entirely unbothered, with sand in places it has no business being. Monday will happen regardless. It always does. But it will happen to someone who has just had four days off, and that is a different person altogether."]
+    ],
+    kit: [["racer", "heritage", "The Rally in Heritage", "For the things you reach for most. $275"], ["duffel", "heritage", "The Monaco", "Two nights, one bag. Three, if you pack well. Arriving later"]]
+  },
+  "doing-nothing": {
+    kicker: "Leisure Studies / 002", title: "The Lost Art of Doing Absolutely Nothing",
+    dek: "An appreciation of unstructured afternoons, uninterrupted conversations, and excellent places to sit.",
+    img: "img/journal-cafe.webp", alt: "A woman with an espresso at a Paris café table, the Portofino in Avorio beside a croissant",
+    read: "4 min read",
+    body: [
+      ["p", "At some point, rest became a project. We track our sleep, schedule our downtime and come back from holiday with a list of everything we managed to see. Leisure has acquired deliverables. Even doing nothing now tends to come with an app."],
+      ["p", "This is a short appreciation of the alternative: the afternoon with no purpose, the table you sit at for longer than the coffee strictly justifies, and the people who are very good at both."],
+      ["h", "The table"],
+      ["p", "Doing nothing well begins with somewhere good to do it. The ideal spot has a small round table, a chair angled toward the street rather than toward your companion, and a waiter who understands that a second espresso is not a signal to bring the bill. Shade is helpful. A view is a bonus. Wi-Fi is beside the point."],
+      ["p", "The great cafés of Europe have always understood this. The table is rented by the hour, the coffee is merely the deposit, and nobody is in a hurry to turn it over. You are not occupying the space. You are part of the scenery."],
+      ["q", "The coffee is merely the deposit."],
+      ["h", "The conversation"],
+      ["p", "An uninterrupted conversation has become a rare and slightly suspicious thing. Phones face down. No agenda. Topics drift from the serious to the absurd and back without anyone steering. It is entirely possible to spend two hours discussing a stranger's dog and leave feeling more rested than after a week of carefully planned relaxation."],
+      ["h", "The method"],
+      ["p", "There is no method. That is the method. But if you insist: carry less, so there is nothing to manage. Sit somewhere you can watch the world without having to take part in it. Order something that takes a while to finish. When the urge to check something arrives, let it pass, the way you would let a waiter pass when you are not ready to order."],
+      ["p", "The afternoon will end eventually. The light will change, someone will mention dinner, and you will realize you have accomplished absolutely nothing. Notice how good that feels. Then do it again tomorrow."]
+    ],
+    kit: [["portofino", "avorio", "The Portofino in Avorio", "Holds a phone, a wallet and an afternoon. $695"]]
+  },
+  "scenic-route": {
+    kicker: "Destinations / 003", title: "The Scenic Route Is the Point",
+    dek: "A celebration of detours, coastal roads, and the joy of arriving eventually.",
+    img: "img/rally-worn.webp", alt: "A woman on a cream scooter in a sunlit piazza, wearing the Rally in Cognac across her body",
+    read: "5 min read",
+    body: [
+      ["p", "Every navigation app offers the fastest route. None of them offers the best one. The fastest route is a tunnel, a ring road, a motorway services with a view of the motorway. The best route is the one along the coast that takes forty minutes longer and gives you something to talk about at dinner."],
+      ["h", "In praise of the detour"],
+      ["p", "Detours are how most good things are found. The village with one restaurant and no menu. The beach that isn't signposted. The lemon stand run by a man who has clearly never heard of a card reader and is not about to start. You will not find any of these by optimizing your journey. You find them by getting slightly, deliberately lost."],
+      ["p", "The Mediterranean was practically built for this. Its coastal roads were laid down for donkeys and fishermen, not commuters, and they still behave accordingly: narrow, winding, reluctant to go anywhere in a straight line. Every bend is an argument for pulling over."],
+      ["q", "You will not find any of these by optimizing your journey."],
+      ["h", "Two wheels, ideally"],
+      ["p", "A car on these roads is a commitment. A scooter is a conversation. It parks anywhere, stops on a whim and lets you smell the sea and the pine and, occasionally, someone's lunch. It also limits what you can bring, which turns out to be a feature. Hands free, a bag across the body, sunglasses on: that is the whole kit."],
+      ["h", "Arriving eventually"],
+      ["p", "The scenic route has one rule: the destination is a suggestion. You will arrive later than planned and in a better mood than expected. Whoever is waiting for you will have already ordered. That is fine. They have been sitting somewhere lovely, doing nothing, which is its own kind of achievement."],
+      ["p", "So take the long way. Stop for the view, then stop again for the better view around the next corner. The fastest route will still be there tomorrow. It always is. That is the main thing wrong with it."]
+    ],
+    kit: [["racer", "cognac", "The Rally in Cognac", "Hands free. Plans optional. $350"]]
+  }
+};
+const STORY_KEYS = Object.keys(STORIES);
+function openStory(k) {
+  const s = STORIES[k]; if (!s) return;
+  $("#stImg").src = s.img; $("#stImg").alt = s.alt;
+  $("#stKicker").textContent = s.kicker; $("#stTitle").textContent = s.title;
+  $("#stDek").textContent = s.dek; $("#stRead").textContent = s.read;
+  $("#stBody").innerHTML = s.body.map(([t, x]) => t === "h" ? `<h3>${esc(x)}</h3>` : t === "q" ? `<blockquote>${esc(x)}</blockquote>` : `<p>${esc(x)}</p>`).join("");
+  $("#stKit").innerHTML = `<span class="label-sm">Packed for this story</span>` + s.kit.map(([id, c, name, note]) => {
+    const p = PRODUCTS.find(x => x.id === id), img = p && thumbOf(p, c);
+    return `<button data-open="${id}" data-color="${c}">${img ? `<img src="${img}" alt="">` : `<span></span>`}<span><b>${esc(name)}</b><small>${esc(note)}</small></span><span class="go">View</span></button>`;
+  }).join("");
+  const nk = STORY_KEYS[(STORY_KEYS.indexOf(k) + 1) % STORY_KEYS.length], n = STORIES[nk];
+  $("#stNext").innerHTML = `<span class="label-sm">Next story / ${esc(n.kicker)}</span><a href="#${nk}" data-story="${nk}"><em>${esc(n.title)}</em></a>`;
+  if (openEl !== $("#story")) openLayer($("#story"));
+  if (location.hash !== "#" + k) history.replaceState(null, "", "#" + k);
+  $("#story").scrollTop = 0;
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-story]"); if (!a) return;
+  e.preventDefault(); openStory(a.dataset.story);
+});
+addEventListener("hashchange", () => openStory(location.hash.slice(1)));
+if (STORIES[location.hash.slice(1)]) openStory(location.hash.slice(1));
 
 renderBag();
 </script>
