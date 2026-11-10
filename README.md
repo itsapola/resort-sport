@@ -72,6 +72,22 @@ python3 -m http.server
 
 To host it on GitHub Pages, turn on Pages in the repo settings and choose the `main` branch, root folder. The link-preview image is addressed at the Pages URL.
 
+## Deploying to Cloudflare Pages
+
+Import this repository under **Workers & Pages → Create application → Pages** and use these settings.
+
+| Setting | Value |
+|---|---|
+| Production branch | `cloudflare-pages` |
+| Framework preset | None |
+| Root directory | Repository root |
+| Build command | `sh build-pages.sh` |
+| Build output directory | `dist` |
+
+The build copies the storefront, images, and email previews. Campaign source files and presentation decks stay in GitHub. No environment variables are required.
+
+After choosing the permanent site URL, update `og:url` and `og:image` in `index.html` so shared links point to the new host.
+
 ## Notes
 
 - Prices are proposed retail ranges, not final MSRP.
